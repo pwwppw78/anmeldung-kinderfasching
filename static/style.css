@@ -1,0 +1,125 @@
+/* Allgemeines Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://images.unsplash.com/photo-1543699539-bc9a344a7b42') no-repeat center center fixed; 
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Formular-Container */
+.container {
+    width: 60%;
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 2px solid #b22222; /* Dunkelrot */
+}
+
+/* Überschrift */
+h1 {
+    text-align: center;
+    color: #b22222; /* Dunkelrot */
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Pflichtfeld-Hinweis */
+.required-info {
+    font-size: 14px;
+    font-style: italic;
+    color: #8b0000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Pflicht-Sternchen */
+.required {
+    color: #b22222;
+}
+
+/* Input-Felder */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #b22222;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Eingabefelder Fokuseffekt */
+input:focus, select:focus, textarea:focus {
+    border-color: #228b22;
+    outline: none;
+    box-shadow: 0px 0px 5px #228b22;
+}
+
+/* Felder nebeneinander ausrichten */
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+/* Checkboxen und Radiobuttons */
+.checkbox-group, .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group label, .radio-group label {
+    margin: 0;
+}
+
+/* Submit-Button */
+button {
+    background-color: #b22222;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #228b22;
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
