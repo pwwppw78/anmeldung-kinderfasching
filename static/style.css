@@ -1,7 +1,7 @@
 /* Allgemeines Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('https://images.unsplash.com/photo-1543699539-bc9a344a7b42') no-repeat center center fixed; 
+    background: url('https://static.vecteezy.com/ti/gratis-vektor/p1/4336274-weihnachten-und-neues-jahr-nahtloses-muster-mit-handgezeichneten-weihnachtsmann-und-feiertagssymbolen-auf-hellblauem-hintergrund-mit-sternen-und-schnee-bunten-festlichen-illustration-vektor.jpg') no-repeat center center fixed; 
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -9,32 +9,32 @@ body {
 
 /* Formular-Container */
 .container {
-    width: 60%;
-    max-width: 800px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    border: 2px solid #b22222; /* Dunkelrot */
+    width: 50%;
+    max-width: 1170px;
+    margin: 10px auto;
+    background: rgba(204, 204, 204, 1);
+    padding: 40px;
+    box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 4px solid #0d0d0d; /* Schwarz */
 }
 
 /* Überschrift */
 h1 {
     text-align: center;
-    color: #b22222; /* Dunkelrot */
-    font-size: 36px;
+    color: #0d0d0d; /* Schwarz */
+    font-size: 30px;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /* Pflichtfeld-Hinweis */
 .required-info {
-    font-size: 14px;
+    font-size: 12px;
     font-style: italic;
     color: #8b0000;
-    text-align: center;
+    text-align: right;
     margin-bottom: 20px;
 }
 
@@ -44,6 +44,7 @@ label {
     margin-top: 15px;
     font-weight: bold;
     color: #333;
+margin-bottom: 5px;
 }
 
 /* Pflicht-Sternchen */
@@ -56,22 +57,23 @@ input, select, textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 2px solid #b22222;
+    border: 2px solid #0d0d0d;
     border-radius: 5px;
     font-size: 16px;
+margin-bottom: 40px;
 }
 
 /* Eingabefelder Fokuseffekt */
 input:focus, select:focus, textarea:focus {
-    border-color: #228b22;
+    border-color: #b22222;
     outline: none;
-    box-shadow: 0px 0px 5px #228b22;
+    box-shadow: 0px 0px 5px #b22222;
 }
 
 /* Felder nebeneinander ausrichten */
 .input-group {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .input-group input {
@@ -91,7 +93,7 @@ input:focus, select:focus, textarea:focus {
 
 /* Submit-Button */
 button {
-    background-color: #b22222;
+    background-color: #0d0d0d;
     color: white;
     padding: 15px;
     border: none;
@@ -101,11 +103,11 @@ button {
     font-size: 18px;
     font-weight: bold;
     transition: background 0.3s;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 button:hover {
-    background-color: #228b22;
+    background-color: #b22222;
 }
 
 /* Responsives Design */
