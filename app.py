@@ -17,12 +17,11 @@ def register():
         email = request.form["email"]
         consent = request.form.get("consent")
 
-        # Verarbeitung der Daten oder Speicherung
-        return f"Danke {parent_firstname}, die Anmeldung für {child_firstname} wurde erfolgreich empfangen!"
+        return render_template("confirmation.html", child_firstname=child_firstname)
     
     return render_template("form.html")
 
 if __name__ == "__main__":
     import os
-    port = int(os.environ.get("PORT", 10000))  # Render nutzt PORT-Variable
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestätigung</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Vielen Dank für Ihre Anmeldung!</h1>
+        <p>Die Anmeldung für <strong>{{ child_firstname }}</strong> wurde erfolgreich übermittelt.</p>
+        
+        <button onclick="window.location.href='{{ url_for('register') }}'">Zurück zum Anmeldeformular</button>
+    </div>
+</body>
+</html>

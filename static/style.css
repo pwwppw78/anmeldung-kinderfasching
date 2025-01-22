@@ -1,7 +1,7 @@
 /* Allgemeines Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('https://static.vecteezy.com/ti/gratis-vektor/p1/4336274-weihnachten-und-neues-jahr-nahtloses-muster-mit-handgezeichneten-weihnachtsmann-und-feiertagssymbolen-auf-hellblauem-hintergrund-mit-sternen-und-schnee-bunten-festlichen-illustration-vektor.jpg') no-repeat center center fixed; 
+    background: url('https://wallpapers.com/images/hd/football-background-jkdtsu65pia6j86s.jpg') no-repeat center center fixed; 
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     width: 50%;
     max-width: 1170px;
     margin: 10px auto;
-    background: rgba(204, 204, 204, 1);
+    background: rgba(255, 255, 255, 0.75);
     padding: 40px;
     box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -23,7 +23,7 @@ body {
 h1 {
     text-align: center;
     color: #0d0d0d; /* Schwarz */
-    font-size: 30px;
+    font-size: 36px;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 40px;
@@ -44,7 +44,7 @@ label {
     margin-top: 15px;
     font-weight: bold;
     color: #333;
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 /* Pflicht-Sternchen */
@@ -60,14 +60,14 @@ input, select, textarea {
     border: 2px solid #0d0d0d;
     border-radius: 5px;
     font-size: 16px;
-margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 /* Eingabefelder Fokuseffekt */
 input:focus, select:focus, textarea:focus {
-    border-color: #b22222;
+    border-color: #0d0d0d;
     outline: none;
-    box-shadow: 0px 0px 5px #b22222;
+    box-shadow: 0px 0px 5px #0d0d0d;
 }
 
 /* Felder nebeneinander ausrichten */
@@ -83,12 +83,17 @@ input:focus, select:focus, textarea:focus {
 /* Checkboxen und Radiobuttons */
 .checkbox-group, .radio-group {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
     gap: 10px;
 }
 
 .checkbox-group label, .radio-group label {
-    margin: 0;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;  /* Schriftgröße */
+    margin-left: 100px; /* Abstand zwischen Checkbox/Radio und Text */
 }
 
 /* Submit-Button */
