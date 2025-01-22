@@ -92,27 +92,6 @@ input:focus, select:focus, textarea:focus {
     max-width: 300px;
 }
 
-/*Radiobuttons */
-.radio-group {
-    display: flex;
-    align-items: center;  /* Vertikal zentrieren */
-    gap: 30px;  /* Abstand zwischen den Radio-Button-Gruppen (Nein - Ja) */
-    margin-top: 10px;
-}
-
-.radio-group label {
-    margin-left: 5px;  /* Kleiner Abstand zwischen Button und Label */
-    font-size: 18px;  /* Größe der Beschriftung */
-    color: #000000;
-}
-
-.radio-group input {
-    flex-shrink: 0;  /* Verhindert Skalierung der Buttons */
-}
-
-/*Checkboxen*/
-
-
 /* Submit-Button */
 button {
     background-color: #000000;
