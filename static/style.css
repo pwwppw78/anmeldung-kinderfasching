@@ -5,6 +5,7 @@ body {
     background-size: cover;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* Formular-Container */
@@ -23,7 +24,7 @@ body {
 h1 {
     text-align: center;
     color: #0d0d0d; /* Schwarz */
-    font-size: 36px;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 40px;
@@ -55,11 +56,11 @@ label {
 /* Input-Felder */
 input, select, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 1rem;
     margin-top: 5px;
     border: 2px solid #0d0d0d;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     margin-bottom: 40px;
 }
 
@@ -73,11 +74,13 @@ input:focus, select:focus, textarea:focus {
 /* Felder nebeneinander ausrichten */
 .input-group {
     display: flex;
+    flex-wrap:wrap;
     gap: 10px;
 }
 
 .input-group input {
-    flex: 1;
+    flex: 1 1 45%;
+    min-width: 150px;
 }
 
 /* Checkboxen und Radiobuttons */
@@ -100,12 +103,12 @@ input:focus, select:focus, textarea:focus {
 button {
     background-color: #0d0d0d;
     color: white;
-    padding: 15px;
+    padding: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     transition: background 0.3s;
     margin-top: 40px;
@@ -115,18 +118,45 @@ button:hover {
     background-color: #b22222;
 }
 
-/* Responsives Design */
+/* Für große Bildschirme */
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+        max-width: 1200px;
+    }
+}
+
+/* Für Tablets */
+@media (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+    h1 {
+        font-size: 32px;
+    }
+}
+
+/* Für Smartphones */
 @media (max-width: 768px) {
     .container {
         width: 90%;
     }
-
     .input-group {
         flex-direction: column;
     }
+}
 
+/* Für kleine Smartphones */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+    h1 {
+        font-size: 24px;
+    }
     button {
-        font-size: 16px;
+        font-size: 1rem;
+        padding: 0.8rem;
     }
 }
 
