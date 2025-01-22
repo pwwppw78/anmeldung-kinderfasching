@@ -37,7 +37,7 @@ h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 /* Pflichtfeld-Hinweis */
@@ -49,10 +49,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Labels */
+/* Abschnittlabels */
 label {
     display: block;
-    margin-top: 26px;
+    margin-top: 22px;
     color: #000000;
     margin-bottom: 5px;
 }
@@ -64,8 +64,8 @@ label {
 
 /* Input-Felder */
 input, select, textarea {
-    width: 40%;
-    padding: 0.8rem;
+    width: 45%;
+    padding: 0.5rem;
     margin-top: 2px;
     border: 2px solid #000000;
     border-radius: 0.5rem;
@@ -80,7 +80,7 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0px 0px 5px #0d0d0d;
 }
 
--input-group {
+.input-group {
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -92,20 +92,26 @@ input:focus, select:focus, textarea:focus {
     max-width: 300px;
 }
 
-/* Checkboxen und Radiobuttons */
-.checkbox-group, .radio-group {
+/*Radiobuttons */
+.radio-group {
     display: flex;
-    align-items: flex-start;
+    align-items: center;  /* Vertikal zentrieren */
+    gap: 30px;  /* Abstand zwischen den Radio-Button-Gruppen (Nein - Ja) */
     margin-top: 10px;
-    gap: 10px;
 }
 
-.checkbox-group label, .radio-group label {
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;  /* Schriftgröße */
-    margin-left: 100px; /* Abstand zwischen Checkbox/Radio und Text */
+.radio-group label {
+    margin-left: 5px;  /* Kleiner Abstand zwischen Button und Label */
+    font-size: 18px;  /* Größe der Beschriftung */
+    color: #000000;
 }
+
+.radio-group input {
+    flex-shrink: 0;  /* Verhindert Skalierung der Buttons */
+}
+
+/*Checkboxen*/
+
 
 /* Submit-Button */
 button {
