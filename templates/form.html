@@ -34,12 +34,12 @@
                 <div class="radio-group">
                     <input type="radio" id="allergy_no" name="allergy" value="Nein" required onclick="toggleAllergy(false)">
                     <label for="allergy_no">Nein</label>
-                    <input type="radio" id="allergy_yes" name="allergy" value="Ja" onclick="toggleAllergy(true)">
-                    <label for="allergy_yes">Ja, ...</label>
+                    <input type="radio" id="allergy_yes" name="allergy" value="Ja" required onclick="toggleAllergy(true)">
+                    <label for="allergy_yes">Ja</label>
                 </div>
                 <div id="allergy_details" style="display:none;">
                     <label for="allergy_text">Bitte geben Sie die Allergien an:</label>
-                    <input type="text" id="allergy_text" name="allergy_details">
+                    <input type="text" id="allergy_text" name="allergy_details" placeholder="Allergiebezeichnung">
                 </div>
             </div>
 
@@ -80,9 +80,11 @@
 
             <!-- Bestätigung -->
             <div class="form-group">
-                <input type="checkbox" id="confirm" name="confirm" required>
+                <label>Einwilligung <span class="required">*</span></label>
+                <div class="radio-group">
+                    <input type="radio" id="confirm" name="confirm" required>
                 <label for="confirm">Mir ist bewusst, dass die Anmeldung meines Kindes erst mit Zahlung des fälligen Eintrittspreises von 8,00 € gültig ist. <span class="required">*</span></label>
-            </div>
+                 </div>
 
             <!-- Abschicken -->
             <button type="submit">Anmeldung absenden</button>
