@@ -2,11 +2,14 @@
 body {
     font-family: 'Arial', sans-serif;
     background: url('https://wallpapers.com/images/hd/football-background-jkdtsu65pia6j86s.jpg') no-repeat center center; 
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
 }
 
@@ -136,7 +139,7 @@ button:hover {
 /* Für Tablets */
 @media (max-width: 1200px) {
     .container {
-        width: 70%;
+        width: 60%;
     }
     h1 {
         font-size: 3vw;
@@ -146,7 +149,7 @@ button:hover {
 /* Für Smartphones */
 @media (max-width: 768px) {
     .container {
-        width: 85%;
+        width: 70%;
     }
     h1 {
         font-size: 6vw;
@@ -159,7 +162,7 @@ button:hover {
 /* Für kleine Smartphones */
 @media (max-width: 480px) {
     .container {
-        width: 95%;
+        width: 80%;
         max-width: 400px;
     }
     h1 {
