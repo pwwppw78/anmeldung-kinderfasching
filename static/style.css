@@ -83,7 +83,6 @@ input:focus, select:focus, textarea:focus {
 .input-group {
     display: flex;
     gap: 10px;
-    justify-content: space-between;
 }
 
 .input-group input {
