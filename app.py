@@ -9,7 +9,7 @@ def register():
         child_lastname = request.form["child_lastname"]
         birthdate = request.form["birthdate"]
         allergies = request.form["allergies"]
-        club_membership = request.form["club-membership"]
+        club_membership = request.form["club_membership"]
         parent_firstname = request.form["parent_firstname"]
         parent_lastname = request.form["parent_lastname"]
         phone_number = request.form["phone_number"]

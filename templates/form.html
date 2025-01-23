@@ -22,11 +22,12 @@
                 </div>
             </div>
 
-            <!-- Geburtsdatum -->
-            <div class="form-group">
-                <label for="birthdate">Geburtsdatum des Kindes <span class="required">*</span></label>
-                <input type="date" id="birthdate" name="birthdate" required>
-            </div>
+<!-- Geburtsdatum -->
+<div class="form-group">
+    <label for="birthdate">Geburtsdatum des Kindes <span class="required">*</span></label>
+    <input type="date" id="birthdate" name="birthdate" required>
+</div>
+
 
             <!-- Lebensmittelallergien -->
             <div class="form-group">
@@ -36,15 +37,15 @@
                   </div>
             </div>
 
-            <!-- Vereinsmitgliedschaft -->
-            <div class="form-group">
-                 <label for="club_membership">Vereinsmitgliedschaft <span class="required">*</span></label>
-                 <select id="club-membership" name="club_membership" required>
-                    <option value= " " disabled selected>Bitte auswählen</option>
-                    <option value= "TSV Bitzfeld 1922 e.V.">TSV Bitzfeld 1922 e.V.</option>
-                    <option value= "TSV Schwabbach 1947 e.V.">TSV Schwabbach 1947 e.V.</option>
-                 </select>
-            </div>
+<!-- Vereinsmitgliedschaft -->
+<div class="form-group">
+    <label for="club_membership">Vereinsmitgliedschaft <span class="required">*</span></label>
+    <select id="club_membership" name="club_membership" required>
+        <option value="" disabled selected>Bitte auswählen</option>
+        <option value="TSV Bitzfeld 1922 e.V.">TSV Bitzfeld 1922 e.V.</option>
+        <option value="TSV Schwabbach 1947 e.V.">TSV Schwabbach 1947 e.V.</option>
+    </select>
+</div>
 
             <!-- Name des Erziehungsberechtigten -->
             <div class="form-group">
@@ -79,6 +80,39 @@
             <button type="submit">Anmeldung absenden</button>
         </form>
     </div>
+
+
+<!-- JavaScript für Dropdown-Farbe -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let selectField = document.getElementById('club_membership');
+        let birthdateField = document.getElementById('birthdate');
+
+        function updateSelectColor() {
+            if (selectField.value === "") {
+                selectField.style.color = '#c4c4cc';
+            } else {
+                selectField.style.color = '#000000';
+            }
+        }
+
+        function updateDateColor() {
+            if (birthdateField.value === "") {
+                birthdateField.style.color = '#c4c4cc';
+            } else {
+                birthdateField.style.color = '#000000';
+            }
+        }
+
+        updateSelectColor();
+        updateDateColor();
+        selectField.addEventListener('change', updateSelectColor);
+        birthdateField.addEventListener('change', updateDateColor);
+    });
+</script>
+
+
+
 
 </body>
 </html>
