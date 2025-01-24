@@ -8,6 +8,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
+app.config['WTF_CSRF_ENABLED'] = True  # CSRF-Schutz aktivieren
+app.config['WTF_CSRF_TIME_LIMIT'] = 3600  # Token ist 1 Stunde gültig
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback_secret_key')
 
 # Logging-Konfiguration
