@@ -8,7 +8,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Ersetze durch eine sichere Zeichenfolge
+app.secret_key = os.environ.get('SECRET_KEY', 'fallback_secret_key')
 
 # Logging-Konfiguration
 log_handler = RotatingFileHandler("error.log", maxBytes=10000, backupCount=3)
@@ -95,6 +95,14 @@ def page_not_found(e):
 def internal_server_error(e):
     app.logger.error(f"500 Error: {request.url}")
     return render_template("500.html"), 500
+
+@app.route("/check_secret")
+def check_secret():
+    if app.secret_key:
+        return f"Secret Key length: {len(app.secret_key)}", 200
+    else:
+        return "Secret Key not set!", 500
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
