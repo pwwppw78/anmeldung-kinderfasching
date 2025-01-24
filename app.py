@@ -67,16 +67,22 @@ class RegistrationForm(FlaskForm):
 
 @app.route("/", methods=["GET", "POST"])
 def register():
+    print(f"Request method: {request.method}")
+
     form = RegistrationForm()
     if form.validate_on_submit():
-        return render_template("confirmation.html", 
-                               child_firstname=form.child_firstname.data,
-                               child_lastname=form.child_lastname.data,
-                               birthdate=form.birthdate.data)
-    else:
-        for field, errors in form.errors.items():
-            for error in errors:
-                flash(f"Fehler im Feld {field}: {error}", "danger")
+        print("Form validated successfully")
+        return render_template(
+            "confirmation.html", 
+            child_firstname=form.child_firstname.data,
+            child_lastname=form.child_lastname.data,
+            birthdate=form.birthdate.data
+        )
+
+    print("Form validation failed")
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(f"Fehler im Feld '{field}': {error}", "danger")
 
     return render_template("form.html", form=form)
 
@@ -97,7 +103,7 @@ if __name__ == "__main__":
         from gunicorn.app.wsgiapp import run
         run()
     else:
-        from waitress import serve  # Windows-kompatibler Server für lokale Nutzung
-        print("Running locally with Waitress...")
-        serve(app, host="0.0.0.0", port=port)
+        print(f"Running locally on http://127.0.0.1:{port} with Flask...")
+        app.run(debug=True, host="127.0.0.1", port=port)
+
 

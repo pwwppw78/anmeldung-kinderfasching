@@ -165,10 +165,31 @@
 		}
 
 	/*Button Hover-Effekt*/
-		button:hover {
+		button:hover, .button:hover {
 			background-color: #b22222;
 		}
 
+		.button {
+			display: inline-block;
+			padding: 1rem;
+			background-color: #000000;  
+			color: white;
+			text-align: center;
+			font-size: 1.2rem;
+			font-weight: bold;
+			text-decoration: none;
+			border: none;
+			border-radius: 0.5rem;
+			cursor: pointer;
+		}
+
+	/* Zentrieren des Buttons */
+		.button-container {
+			display: flex;
+			justify-content: center; 
+			align-items: center;  
+			margin-top: 20px; 
+		}
 
 
 
