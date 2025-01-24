@@ -46,8 +46,8 @@ csp = {
 Talisman(
     app,
     content_security_policy=csp,  
-    force_https=False,  # HTTPS-Zwang ausgeschaltet
-    strict_transport_security=False,  # HSTS deaktiviert
+    force_https=True,  # HTTPS aktivieren
+    strict_transport_security=True,  # HSTS aktivieren
     frame_options="DENY"
 )
 
