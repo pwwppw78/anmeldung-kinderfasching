@@ -93,11 +93,11 @@ def internal_server_error(e):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     
-    # Prüfen, ob die App auf Render läuft (Deployment) oder lokal
-    if os.environ.get("RENDER"):  
+    if os.environ.get("RENDER"):  # Falls auf Render deployed
         from gunicorn.app.wsgiapp import run
         run()
     else:
-        from waitress import serve  # Lokale Nutzung von waitress (Windows-kompatibel)
+        from waitress import serve  # Windows-kompatibler Server für lokale Nutzung
         print("Running locally with Waitress...")
         serve(app, host="0.0.0.0", port=port)
+
