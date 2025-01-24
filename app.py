@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, EmailField, TelField
@@ -90,6 +91,13 @@ def internal_server_error(e):
     return render_template("500.html"), 500
 
 if __name__ == "__main__":
-    import os
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port, debug=True)  # SSL entfernt, nur HTTP
+    
+    # Prüfen, ob die App auf Render läuft (Deployment) oder lokal
+    if os.environ.get("RENDER"):  
+        from gunicorn.app.wsgiapp import run
+        run()
+    else:
+        from waitress import serve  # Lokale Nutzung von waitress (Windows-kompatibel)
+        print("Running locally with Waitress...")
+        serve(app, host="0.0.0.0", port=port)
