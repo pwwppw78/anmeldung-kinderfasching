@@ -10,6 +10,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_wtf.csrf import CSRFError
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
 app.config['WTF_CSRF_ENABLED'] = True  # CSRF-Schutz aktivieren
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600  # Token ist 1 Stunde gültig
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback_secret_key')
