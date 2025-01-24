@@ -1,28 +1,95 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
+from flask_wtf import FlaskForm
+from wtforms import StringField, DateField, SelectField, EmailField, TelField
+from wtforms.validators import DataRequired, Email, Length
+from flask_talisman import Talisman
+import logging
+from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key"  # Ersetze durch eine sichere Zeichenfolge
+
+# Logging-Konfiguration
+log_handler = RotatingFileHandler("error.log", maxBytes=10000, backupCount=3)
+log_handler.setLevel(logging.ERROR)
+log_format = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+log_handler.setFormatter(log_format)
+app.logger.addHandler(log_handler)
+
+# Content Security Policy (CSP) mit SVG-Unterstützung
+csp = {
+    'default-src': [
+        "'self'",  
+        'https://stackpath.bootstrapcdn.com',  
+        'https://cdnjs.cloudflare.com'  
+    ],
+    'img-src': [
+        "'self'",  
+        'data:',  
+        'blob:',  
+        'https://example.com',  
+    ],
+    'script-src': [
+        "'self'",
+        'https://stackpath.bootstrapcdn.com',
+        'https://cdnjs.cloudflare.com'
+    ],
+    'style-src': [
+        "'self'",
+        'https://stackpath.bootstrapcdn.com',
+        'https://fonts.googleapis.com'
+    ],
+    'frame-ancestors': "'none'",  
+}
+
+Talisman(
+    app,
+    content_security_policy=csp,  
+    force_https=False,  # HTTPS-Zwang ausgeschaltet
+    strict_transport_security=False,  # HSTS deaktiviert
+    frame_options="DENY"
+)
+
+class RegistrationForm(FlaskForm):
+    child_firstname = StringField("Vorname des Kindes", validators=[DataRequired(), Length(max=50)])
+    child_lastname = StringField("Nachname des Kindes", validators=[DataRequired(), Length(max=50)])
+    birthdate = DateField("Geburtsdatum", format='%Y-%m-%d', validators=[DataRequired()])
+    allergies = StringField("Lebensmittelallergien", validators=[Length(max=100)])
+    club_membership = SelectField("Vereinsmitgliedschaft", choices=[
+        ("TSV Bitzfeld 1922 e.V.", "TSV Bitzfeld 1922 e.V."),
+        ("TSV Schwabbach 1947 e.V.", "TSV Schwabbach 1947 e.V.")
+    ], validators=[DataRequired()])
+    parent_firstname = StringField("Vorname Elternteil", validators=[DataRequired(), Length(max=50)])
+    parent_lastname = StringField("Nachname Elternteil", validators=[DataRequired(), Length(max=50)])
+    phone_number = TelField("Telefonnummer", validators=[DataRequired(), Length(min=10, max=15)])
+    email = EmailField("E-Mail", validators=[DataRequired(), Email()])
 
 @app.route("/", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-        child_firstname = request.form["child_firstname"]
-        child_lastname = request.form["child_lastname"]
-        birthdate = request.form["birthdate"]
-        allergies = request.form["allergies"]
-        club_membership = request.form["club_membership"]
-        parent_firstname = request.form["parent_firstname"]
-        parent_lastname = request.form["parent_lastname"]
-        phone_number = request.form["phone_number"]
-        email = request.form["email"]
-
+    form = RegistrationForm()
+    if form.validate_on_submit():
         return render_template("confirmation.html", 
-                                                   child_firstname=child_firstname,
-                                                   child_lastname=child_lastname,
-                                                   birthdate=birthdate)
-    
-    return render_template("form.html")
+                               child_firstname=form.child_firstname.data,
+                               child_lastname=form.child_lastname.data,
+                               birthdate=form.birthdate.data)
+    else:
+        for field, errors in form.errors.items():
+            for error in errors:
+                flash(f"Fehler im Feld {field}: {error}", "danger")
+
+    return render_template("form.html", form=form)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    app.logger.error(f"404 Error: {request.url}")
+    return render_template("404.html"), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    app.logger.error(f"500 Error: {request.url}")
+    return render_template("500.html"), 500
 
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)  # SSL entfernt, nur HTTP

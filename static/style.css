@@ -4,7 +4,7 @@
 	/*Grundgestaltung*/
 		body {
 			font-family: 'Arial', sans-serif;
-			background: url('https://upload.wikimedia.org/wikipedia/commons/4/45/Football_field.svg') no-repeat center center; 
+			background: url('/static/football_field.svg') no-repeat center center;
 			background-size: cover;
 			background-attachment: fixed;
 			margin: 0;

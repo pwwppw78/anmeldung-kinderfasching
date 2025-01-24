@@ -1,0 +1,35 @@
+2025-01-24 10:42:11,560 - ERROR - 404 Error: http://127.0.0.1:10000/ungültig
+2025-01-24 10:46:49,681 - ERROR - Exception on /cause500 [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 101, in cause_error
+    return 1 / 0
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-01-24 10:46:49,687 - ERROR - 500 Error: http://127.0.0.1:10000/cause500
+2025-01-24 10:46:50,517 - ERROR - Exception on /cause500 [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 101, in cause_error
+    return 1 / 0
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-01-24 10:46:50,522 - ERROR - 500 Error: http://127.0.0.1:10000/cause500
+2025-01-24 11:31:42,930 - ERROR - 404 Error: https://127.0.0.1:10000/favicon.ico
+2025-01-24 11:46:21,961 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
