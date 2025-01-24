@@ -96,12 +96,7 @@ def internal_server_error(e):
     app.logger.error(f"500 Error: {request.url}")
     return render_template("500.html"), 500
 
-@app.route("/check_secret")
-def check_secret():
-    if app.secret_key:
-        return f"Secret Key length: {len(app.secret_key)}", 200
-    else:
-        return "Secret Key not set!", 500
+
 
 
 if __name__ == "__main__":
