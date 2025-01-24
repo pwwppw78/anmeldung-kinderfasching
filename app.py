@@ -51,8 +51,8 @@ csp = {
 Talisman(
     app,
     content_security_policy=csp,  
-    force_https=True,  # HTTPS aktivieren
-    strict_transport_security=True,  # HSTS aktivieren
+    force_https=False,  # HTTPS aktivieren
+    strict_transport_security=False,  # HSTS aktivieren
     frame_options="DENY"
 )
 
@@ -72,11 +72,8 @@ class RegistrationForm(FlaskForm):
 
 @app.route("/", methods=["GET", "POST"])
 def register():
-    print(f"Request method: {request.method}")
-
     form = RegistrationForm()
     if form.validate_on_submit():
-        print("Form validated successfully")
         return render_template(
             "confirmation.html", 
             child_firstname=form.child_firstname.data,
@@ -84,7 +81,6 @@ def register():
             birthdate=form.birthdate.data
         )
 
-    print("Form validation failed")
     for field, errors in form.errors.items():
         for error in errors:
             flash(f"Fehler im Feld '{field}': {error}", "danger")
@@ -106,9 +102,6 @@ def handle_csrf_error(e):
     flash("CSRF-Token ist ungültig oder fehlt. Bitte versuchen Sie es erneut.", "danger")
     return render_template("form.html"), 400
 
-
-
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     
@@ -116,7 +109,4 @@ if __name__ == "__main__":
         from gunicorn.app.wsgiapp import run
         run()
     else:
-        print(f"Running locally on http://127.0.0.1:{port} with Flask...")
-        app.run(debug=True, host="127.0.0.1", port=port)
-
-
+        app.run(debug=False, host="127.0.0.1", port=port)
