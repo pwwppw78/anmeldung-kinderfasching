@@ -7,6 +7,7 @@ from flask_talisman import Talisman
 import logging
 from logging.handlers import RotatingFileHandler
 from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFError
 
 app = Flask(__name__)
 app.config['WTF_CSRF_ENABLED'] = True  # CSRF-Schutz aktivieren
@@ -98,6 +99,11 @@ def page_not_found(e):
 def internal_server_error(e):
     app.logger.error(f"500 Error: {request.url}")
     return render_template("500.html"), 500
+
+@app.errorhandler(CSRFError)
+def handle_csrf_error(e):
+    flash("CSRF-Token ist ungültig oder fehlt. Bitte versuchen Sie es erneut.", "danger")
+    return render_template("form.html"), 400
 
 
 
