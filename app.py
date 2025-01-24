@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, Email, Length
 from flask_talisman import Talisman
 import logging
 from logging.handlers import RotatingFileHandler
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 app.config['WTF_CSRF_ENABLED'] = True  # CSRF-Schutz aktivieren
