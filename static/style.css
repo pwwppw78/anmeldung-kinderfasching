@@ -4,7 +4,7 @@
 	/*Grundgestaltung*/
 		body {
 			font-family: 'Arial', sans-serif;
-			background: url('/static/balloons_background.avif') no-repeat center center fixed;
+			background: url('/static/confetti_top.svg') no-repeat center center fixed;
 			background-size: cover;
 			background-position: center center;
 			margin: 0;
