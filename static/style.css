@@ -191,6 +191,18 @@
 			margin-top: 20px; 
 		}
 
+	/* Formatierung Datenschutz */
+		.privacy-link {
+			color: #b22222; /* Dunkelrot für Hervorhebung */
+			text-decoration: underline;
+			font-weight: bold;
+		}
+
+	/* Hover-Effekt Datenschutz */
+		.privacy-link:hover {
+			color: #8b0000;
+		}
+
 
 
 /*Formatierung auf verschiedene Bildschirme*/

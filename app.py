@@ -124,6 +124,11 @@ def set_security_headers(response):
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
     return response
 
+@app.route("/datenschutz")
+def privacy():
+    return render_template("privacy.html")
+
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
