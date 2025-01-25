@@ -104,3 +104,5 @@ Traceback (most recent call last):
     ^^^^^
 jinja2.exceptions.TemplateSyntaxError: unexpected char '^' at 1161
 2025-01-25 14:32:22,006 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 18:44:58,603 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-25 18:45:40,813 - ERROR - 404 Error: http://127.0.0.1:10000/jj
