@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, SelectField, EmailField, TelField, PasswordField, SubmitField
+from wtforms import StringField, DateField, SelectField, EmailField, TelField, PasswordField, SubmitField, HiddenField
 from wtforms.validators import DataRequired, Email, Length, Regexp
 from flask_talisman import Talisman
 import logging
@@ -140,6 +140,9 @@ class RegistrationForm(FlaskForm):
         ]
     )
 
+class DeleteForm(FlaskForm):
+    csrf_token = HiddenField()
+
 class Registration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     child_firstname = db.Column(db.String(50), nullable=False)
@@ -237,18 +240,54 @@ def admin_login():
             flash("Falsches Passwort. Bitte erneut versuchen.", "danger")
     return render_template("admin_login.html", form=form)
 
-@app.route("/admin")
+@app.route("/admin", methods=["GET", "POST"])
 def admin():
     if not session.get("admin_logged_in"):
         return redirect(url_for("admin_login"))  # Weiterleitung zur Login-Seite, falls nicht eingeloggt
+
+    form = DeleteForm()
+
+    if form.validate_on_submit():
+        if 'delete_all' in request.form:
+            try:
+                db.session.query(Registration).delete()
+                db.session.commit()
+                flash("Alle Einträge wurden erfolgreich gelöscht.", "success")
+            except Exception as e:
+                db.session.rollback()
+                flash("Fehler beim Löschen der Einträge.", "danger")
+            return redirect(url_for("admin"))
+
     registrations = Registration.query.all()
-    return render_template("admin.html", registrations=registrations)
+    return render_template("admin.html", registrations=registrations, form=form)
 
 @app.route("/logout")
 def logout():
     session.pop("admin_logged_in", None)
     flash("Erfolgreich ausgeloggt.", "success")
     return redirect(url_for("admin_login"))
+
+@app.route("/delete-entry/<int:entry_id>", methods=["POST"])
+def delete_entry(entry_id):
+    entry = Registration.query.get(entry_id)
+    if entry:
+        db.session.delete(entry)
+        db.session.commit()
+        flash("Eintrag wurde erfolgreich gelöscht.", "success")
+    else:
+        flash("Eintrag nicht gefunden.", "danger")
+    return redirect(url_for("admin"))
+
+@app.route("/delete-all-entries", methods=["POST"])
+def delete_all_entries():
+    try:
+        db.session.query(Registration).delete()
+        db.session.commit()
+        flash("Alle Einträge wurden erfolgreich gelöscht.", "success")
+    except Exception as e:
+        db.session.rollback()
+        flash("Fehler beim Löschen der Einträge.", "danger")
+    return redirect(url_for("admin"))
 
 
 

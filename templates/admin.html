@@ -14,17 +14,33 @@
             <th>Vereinsmitgliedschaft</th>
             <th>Telefon</th>
             <th>Email</th>
+            <th>Aktionen</th>
         </tr>
-        {% for r in registrations %}
+        {% for registration in registrations %}
         <tr>
-            <td>{{ r.child_firstname }}</td>
-            <td>{{ r.child_lastname }}</td>
-            <td>{{ r.birthdate }}</td>
-            <td>{{ r.club_membership }}</td>
-            <td>{{ r.phone_number }}</td>
-            <td>{{ r.email }}</td>
+            <td>{{ registration.child_firstname }}</td>
+            <td>{{ registration.child_lastname }}</td>
+            <td>{{ registration.birthdate }}</td>
+            <td>{{ registration.club_membership }}</td>
+            <td>{{ registration.phone_number }}</td>
+            <td>{{ registration.email }}</td>
+            <td>
+                <!-- Formular zum Löschen eines einzelnen Eintrags -->
+                <form action="{{ url_for('delete_entry', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
+                    {{ form.hidden_tag() }}
+                    <button type="submit">Löschen</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>
+
+    <br>
+
+    <!-- Formular zum Löschen aller Einträge -->
+    <form action="{{ url_for('delete_all_entries') }}" method="post" onsubmit="return confirm('Möchtest du wirklich alle Einträge löschen?');">
+        {{ form.hidden_tag() }}
+        <button type="submit">Alle Einträge löschen</button>
+    </form>
 </body>
 </html>
