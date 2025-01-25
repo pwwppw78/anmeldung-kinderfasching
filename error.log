@@ -68,3 +68,4 @@ Traceback (most recent call last):
     ^^^^^
 jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'aria_label'
 2025-01-25 13:31:47,357 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 14:02:33,658 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
