@@ -11,9 +11,16 @@ from flask_wtf.csrf import CSRFError
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
+
+# Sicherheitskonfiguration für Cookies
+app.config['SESSION_COOKIE_SECURE'] = True  # Cookies nur über HTTPS senden
+app.config['SESSION_COOKIE_HTTPONLY'] = True  # Zugriff auf Cookies nur über HTTP, nicht JavaScript
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Schutz vor CSRF (Alternative: 'Strict' für höhere Sicherheit)
+
 app.config['WTF_CSRF_ENABLED'] = True  # CSRF-Schutz aktivieren
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600  # Token ist 1 Stunde gültig
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback_secret_key')
+
 
 # Logging-Konfiguration
 log_handler = RotatingFileHandler("error.log", maxBytes=10000, backupCount=3)
@@ -48,13 +55,23 @@ csp = {
     'frame-ancestors': "'none'",  
 }
 
-Talisman(
-    app,
-    content_security_policy=csp,  
-    force_https=False,  # HTTPS-Zwang ausgeschaltet
-    strict_transport_security=False,  # HSTS deaktiviert
-    frame_options="DENY"
-)
+if os.environ.get("RENDER"):
+    Talisman(
+        app,
+        content_security_policy=csp,  
+        force_https=True,  # HTTPS nur auf Render erzwingen
+        strict_transport_security=True,  
+        strict_transport_security_max_age=31536000,  
+        strict_transport_security_include_subdomains=True,  
+        strict_transport_security_preload=True  
+    )
+else:
+    Talisman(
+        app,
+        content_security_policy=csp,  
+        force_https=False,  # Lokales HTTPS deaktiviert
+        strict_transport_security=False  
+    )
 
 class RegistrationForm(FlaskForm):
     child_firstname = StringField("Vorname des Kindes", validators=[DataRequired(), Length(max=50)])
@@ -101,6 +118,12 @@ def internal_server_error(e):
 def handle_csrf_error(e):
     flash("CSRF-Token ist ungültig oder fehlt. Bitte versuchen Sie es erneut.", "danger")
     return render_template("form.html"), 400
+
+@app.after_request
+def set_security_headers(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    return response
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))

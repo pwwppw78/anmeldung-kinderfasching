@@ -40,3 +40,5 @@ ZeroDivisionError: division by zero
 2025-01-24 13:05:44,844 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
 2025-01-24 13:06:21,044 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
 2025-01-24 13:06:25,486 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
+2025-01-24 15:56:50,447 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-25 12:45:14,906 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
