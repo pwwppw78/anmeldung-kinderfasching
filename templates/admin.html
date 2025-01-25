@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Registrierte Teilnehmer</h1>
+    <table border="1">
+        <tr>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Geburtsdatum</th>
+            <th>Vereinsmitgliedschaft</th>
+            <th>Telefon</th>
+            <th>Email</th>
+        </tr>
+        {% for r in registrations %}
+        <tr>
+            <td>{{ r.child_firstname }}</td>
+            <td>{{ r.child_lastname }}</td>
+            <td>{{ r.birthdate }}</td>
+            <td>{{ r.club_membership }}</td>
+            <td>{{ r.phone_number }}</td>
+            <td>{{ r.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

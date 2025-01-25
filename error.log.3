@@ -1,0 +1,97 @@
+2025-01-25 19:00:38,893 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 141, in register
+    formatted_date = datetime.strptime(form.birthdate.data, "%Y-%m-%d").strftime("%d-%m-%Y")
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.date
+2025-01-25 19:00:38,903 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:01:08,635 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 141, in register
+    formatted_date = datetime.strptime(form.birthdate.data, "%Y-%m-%d").strftime("%d-%m-%Y")
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.date
+2025-01-25 19:01:08,640 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:02:17,150 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:02:17,153 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:03:33,617 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:03:33,621 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:04:05,038 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:04:05,046 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:05:19,511 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, (datetime, datetime.date)):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:05:19,519 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:27:04,606 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
