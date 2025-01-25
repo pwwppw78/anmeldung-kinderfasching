@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session, Response
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, EmailField, TelField, PasswordField, SubmitField, HiddenField
 from wtforms.validators import DataRequired, Email, Length, Regexp
@@ -10,9 +10,10 @@ from flask_wtf.csrf import CSRFProtect
 from flask_wtf.csrf import CSRFError
 from datetime import datetime, date
 from flask_sqlalchemy import SQLAlchemy
-from flask import session, redirect, url_for
 from dotenv import load_dotenv
 load_dotenv()
+import pandas as pd
+from io import BytesIO
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -288,6 +289,41 @@ def delete_all_entries():
         db.session.rollback()
         flash("Fehler beim Löschen der Einträge.", "danger")
     return redirect(url_for("admin"))
+
+@app.route("/export-excel")
+def export_excel():
+    # Überprüfen, ob der Benutzer als Admin eingeloggt ist
+    if not session.get("admin_logged_in"):
+        flash("Nicht autorisiert!", "danger")
+        return redirect(url_for("admin_login"))
+
+    # Daten aus der Datenbank abrufen
+    registrations = Registration.query.all()
+    data = [{
+        "Vorname": r.child_firstname,
+        "Nachname": r.child_lastname,
+        "Geburtsdatum": r.birthdate,
+        "Vereinsmitgliedschaft": r.club_membership,
+        "Telefon": r.phone_number,
+        "E-Mail": r.email
+    } for r in registrations]
+
+    # Daten in ein Pandas-DataFrame umwandeln
+    df = pd.DataFrame(data)
+
+    # In eine BytesIO-Datei speichern, um sie im Speicher zu halten
+    output = BytesIO()
+    df.to_excel(output, index=False, engine='openpyxl')
+    output.seek(0)
+
+    # Excel-Datei als Antwort zurückgeben
+    response = Response(
+        output.getvalue(),
+        content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+    response.headers["Content-Disposition"] = "attachment; filename=registrations.xlsx"
+    
+    return response
 
 
 

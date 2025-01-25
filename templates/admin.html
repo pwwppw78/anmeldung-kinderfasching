@@ -42,5 +42,13 @@
         {{ form.hidden_tag() }}
         <button type="submit">Alle Einträge löschen</button>
     </form>
+
+    <br>
+
+    <!-- Button zum Exportieren der Daten als Excel -->
+    <div class="button-container">
+        <a href="{{ url_for('export_excel') }}" class="button">Daten als Excel exportieren</a>
+    </div>
+
 </body>
 </html>
