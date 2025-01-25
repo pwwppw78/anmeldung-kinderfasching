@@ -1,0 +1,114 @@
+2025-01-24 10:42:11,560 - ERROR - 404 Error: http://127.0.0.1:10000/ungültig
+2025-01-24 10:46:49,681 - ERROR - Exception on /cause500 [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 101, in cause_error
+    return 1 / 0
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-01-24 10:46:49,687 - ERROR - 500 Error: http://127.0.0.1:10000/cause500
+2025-01-24 10:46:50,517 - ERROR - Exception on /cause500 [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 101, in cause_error
+    return 1 / 0
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-01-24 10:46:50,522 - ERROR - 500 Error: http://127.0.0.1:10000/cause500
+2025-01-24 11:31:42,930 - ERROR - 404 Error: https://127.0.0.1:10000/favicon.ico
+2025-01-24 11:46:21,961 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-24 12:33:33,079 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-24 13:02:24,938 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-24 13:04:11,694 - ERROR - 404 Error: http://127.0.0.1:10000/
+2025-01-24 13:04:54,387 - ERROR - 404 Error: http://127.0.0.1:10000/
+2025-01-24 13:05:44,844 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
+2025-01-24 13:06:21,044 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
+2025-01-24 13:06:25,486 - ERROR - 404 Error: http://127.0.0.1:10000/form.html
+2025-01-24 15:56:50,447 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-25 12:45:14,906 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
+2025-01-25 13:12:55,099 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 105, in register
+    return render_template("form.html", form=form)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\mein-anmeldeformular\templates\form.html", line 21, in template
+    {{ form.child_firstname(id="child_firstname", class="form-control", placeholder="Vorname", required="required", aria-label="Vorname des Kindes") }}
+    ^^^^^
+jinja2.exceptions.TemplateSyntaxError: invalid syntax for function call expression
+2025-01-25 13:12:55,195 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 13:13:20,883 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 105, in register
+    return render_template("form.html", form=form)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\mein-anmeldeformular\templates\form.html", line 21, in template
+    {{ form.child_firstname(id="child_firstname", class="form-control", placeholder="Vorname", required="required", aria-label="Vorname des Kindes") }}
+    ^^^^^
+jinja2.exceptions.TemplateSyntaxError: invalid syntax for function call expression
+2025-01-25 13:13:20,889 - ERROR - 500 Error: http://127.0.0.1:10000/

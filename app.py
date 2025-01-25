@@ -8,6 +8,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask_wtf.csrf import CSRFProtect
 from flask_wtf.csrf import CSRFError
+from datetime import datetime, date
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -129,16 +130,21 @@ class RegistrationForm(FlaskForm):
 
 
 
-
 @app.route("/", methods=["GET", "POST"])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        # Datumsformat überprüfen und anpassen
+        if isinstance(form.birthdate.data, (datetime, date)):
+            formatted_date = form.birthdate.data.strftime("%d.%m.%Y")
+        else:
+            formatted_date = datetime.strptime(form.birthdate.data, "%Y-%m-%d").strftime("%d-%m-%Y")
+
         return render_template(
             "confirmation.html", 
             child_firstname=form.child_firstname.data,
             child_lastname=form.child_lastname.data,
-            birthdate=form.birthdate.data
+            birthdate=formatted_date
         )
 
     for field, errors in form.errors.items():

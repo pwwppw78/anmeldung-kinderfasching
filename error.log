@@ -1,4 +1,4 @@
-2025-01-25 13:31:46,162 - ERROR - Exception on / [GET]
+2025-01-25 19:00:38,893 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -9,31 +9,12 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 105, in register
-    return render_template("form.html", form=form)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\mein-anmeldeformular\templates\form.html", line 21, in template
-    {{ form.child_firstname(id="child_firstname", class_="form-control", placeholder="Vorname", required="required", pattern="[A-Za-zƒ÷‹‰ˆ¸ﬂ\s]+" aria_label="Vorname des Kindes") }}
-    ^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'aria_label'
-2025-01-25 13:31:46,170 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-25 13:31:47,349 - ERROR - Exception on / [GET]
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 141, in register
+    formatted_date = datetime.strptime(form.birthdate.data, "%Y-%m-%d").strftime("%d-%m-%Y")
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.date
+2025-01-25 19:00:38,903 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:01:08,635 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -44,32 +25,12 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 105, in register
-    return render_template("form.html", form=form)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\mein-anmeldeformular\templates\form.html", line 21, in template
-    {{ form.child_firstname(id="child_firstname", class_="form-control", placeholder="Vorname", required="required", pattern="[A-Za-zƒ÷‹‰ˆ¸ﬂ\s]+" aria_label="Vorname des Kindes") }}
-    ^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'aria_label'
-2025-01-25 13:31:47,357 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-25 14:02:33,658 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
-2025-01-25 14:32:21,999 - ERROR - Exception on / [GET]
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 141, in register
+    formatted_date = datetime.strptime(form.birthdate.data, "%Y-%m-%d").strftime("%d-%m-%Y")
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.date
+2025-01-25 19:01:08,640 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:02:17,150 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -80,29 +41,57 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 102, in register
-    return render_template("form.html", form=form)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\mein-anmeldeformular\templates\form.html", line 23, in template
-    {{ form.child_lastname(id="child_lastname", class="form-control", placeholder="Nachname", required="required", pattern="pattern="^[A-Za-zƒ÷‹‰ˆ¸ﬂ\s]+$") }}
-    ^^^^^
-jinja2.exceptions.TemplateSyntaxError: unexpected char '^' at 1161
-2025-01-25 14:32:22,006 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-25 18:44:58,603 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico
-2025-01-25 18:45:40,813 - ERROR - 404 Error: http://127.0.0.1:10000/jj
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:02:17,153 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:03:33,617 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:03:33,621 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:04:05,038 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, datetime.date):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:04:05,046 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:05:19,511 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\mein-anmeldeformular\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\mein-anmeldeformular\app.py", line 138, in register
+    if isinstance(form.birthdate.data, (datetime, datetime.date)):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+2025-01-25 19:05:19,519 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-25 19:27:04,606 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico

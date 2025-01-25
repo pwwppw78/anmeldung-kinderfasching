@@ -28,7 +28,7 @@
             <!-- Geburtsdatum -->
             <div class="form-group">
                 <label for="birthdate">Geburtsdatum des Kindes <span class="required">*</span></label>
-                {{ form.birthdate(id="birthdate", class="form-control", required="required", pattern="\\d{4}-\\d{2}-\\d{2}", aria_label="Geburtsdatum des Kindes") }}
+                {{ form.birthdate(id="birthdate", class="form-control", required="required", placeholder="TT.MM.JJJJ", pattern="\\d{2}\\.\\d{2}\\.\\d{4}", aria_label="Geburtsdatum des Kindes") }}
                 <small id="birthdate_error" class="error-message">Ungültiges Format. Bitte TT.MM.JJJJ verwenden.</small>
             </div>
 
@@ -81,10 +81,14 @@
             </div>
 
             <!-- Datenschutz -->
-            <p>
-                Mit dem Absenden erkläre ich mich mit der 
-                <a href="{{ url_for('privacy') }}" class="privacy-link" target="_blank">Datenschutzerklärung</a> einverstanden.
-            </p>
+<p>
+    Mit dem Absenden erkläre ich mich mit der 
+    <a href="{{ url_for('privacy') }}" class="privacy-link" target="_blank">
+        Datenschutzerklärung
+    </a>
+    einverstanden.
+</p>
+
 
             <!-- Abschicken -->
             <button type="submit">Anmeldung absenden</button>

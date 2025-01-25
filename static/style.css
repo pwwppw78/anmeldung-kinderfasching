@@ -48,8 +48,8 @@
 		font-weight: bold;
 		margin-bottom: 30px;
 		max-width: 100%;
-		white-space: nowrap; /* Verhindert Zeilenumbruch */
-		overflow: hidden; /* Verhindert Überlauf */
+		white-space: normal; /* Erlaubt Zeilenumbruch */
+		overflow: vissible; /* Zeigt den gesamten Text */
 		}
 
 
