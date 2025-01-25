@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, EmailField, TelField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import DataRequired, Email, Length, Regexp
 from flask_talisman import Talisman
 import logging
 from logging.handlers import RotatingFileHandler
@@ -71,18 +71,64 @@ else:
     )
 
 class RegistrationForm(FlaskForm):
-    child_firstname = StringField("Vorname des Kindes", validators=[DataRequired(), Length(max=50)])
-    child_lastname = StringField("Nachname des Kindes", validators=[DataRequired(), Length(max=50)])
+    child_firstname = StringField(
+        "Vorname des Kindes",
+        validators=[
+            DataRequired(),
+            Length(max=50),
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+        ]
+    )
+    child_lastname = StringField(
+        "Nachname des Kindes",
+        validators=[
+            DataRequired(),
+            Length(max=50),
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+        ]
+    )
     birthdate = DateField("Geburtsdatum", format='%Y-%m-%d', validators=[DataRequired()])
     allergies = StringField("Lebensmittelallergien", validators=[Length(max=100)])
-    club_membership = SelectField("Vereinsmitgliedschaft", choices=[
-        ("TSV Bitzfeld 1922 e.V.", "TSV Bitzfeld 1922 e.V."),
-        ("TSV Schwabbach 1947 e.V.", "TSV Schwabbach 1947 e.V.")
-    ], validators=[DataRequired()])
-    parent_firstname = StringField("Vorname Elternteil", validators=[DataRequired(), Length(max=50)])
-    parent_lastname = StringField("Nachname Elternteil", validators=[DataRequired(), Length(max=50)])
+    
+    club_membership = SelectField(
+        "Vereinsmitgliedschaft",
+        choices=[
+            ("", "Bitte auswählen"),
+            ("TSV Bitzfeld 1922 e.V.", "TSV Bitzfeld 1922 e.V."),
+            ("TSV Schwabbach 1947 e.V.", "TSV Schwabbach 1947 e.V.")
+        ],
+        validators=[DataRequired(message="Bitte eine Vereinsmitgliedschaft auswählen!")]
+    )
+
+    parent_firstname = StringField(
+        "Vorname Elternteil",
+        validators=[
+            DataRequired(),
+            Length(max=50),
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+        ]
+    )
+
+    parent_lastname = StringField(
+        "Nachname Elternteil",
+        validators=[
+            DataRequired(),
+            Length(max=50),
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+        ]
+    )
+
     phone_number = TelField("Telefonnummer", validators=[DataRequired(), Length(min=10, max=15)])
-    email = EmailField("E-Mail", validators=[DataRequired(), Email()])
+    email = EmailField(
+        "E-Mail",
+        validators=[
+            DataRequired(),
+            Email(message="Bitte eine gültige E-Mail-Adresse eingeben!")
+        ]
+    )
+
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def register():

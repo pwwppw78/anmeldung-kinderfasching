@@ -203,6 +203,21 @@
 			color: #8b0000;
 		}
 
+/* Fehlermeldungen standardmäßig unsichtbar */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Fehlerhafte Eingaben visuell hervorheben */
+.input-error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+
 
 
 /*Formatierung auf verschiedene Bildschirme*/
