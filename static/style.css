@@ -4,16 +4,18 @@
 	/*Grundgestaltung*/
 		body {
 			font-family: 'Arial', sans-serif;
-			background: url('/static/football_field.svg') no-repeat center center;
+			background: url('/static/balloons_background.avif') no-repeat center center fixed;
 			background-size: cover;
-			background-attachment: fixed;
+			background-position: center center;
 			margin: 0;
 			padding: 0;
 			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			width: 100vw;
 			overflow-x: hidden;
+			background-attachment: fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
 		}
 
 	/* Verhindert horizontales Scrollen */
