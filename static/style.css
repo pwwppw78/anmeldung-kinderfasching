@@ -41,13 +41,17 @@
 
 	/* Überschrift */
 		h1 {
-			text-align: center;
-			color: #000000; /* Schwarz */
-			font-size: 2rem;
-			text-transform: uppercase;
-			font-weight: bold;
-			margin-bottom: 30px;
+		text-align: center;
+		color: #000000; /* Schwarz */
+		font-size: clamp(1.5rem, 5vw, 3rem); /* Mindest-, dynamische und maximale Größe */
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 30px;
+		max-width: 100%;
+		white-space: nowrap; /* Verhindert Zeilenumbruch */
+		overflow: hidden; /* Verhindert Überlauf */
 		}
+
 
 	/* Pflichtfeld-Hinweis */
 		.required-info {
@@ -237,7 +241,7 @@
 				width: 60%;
     			}
 			h1 {
-				font-size: 3vw;
+				font-size: clamp(1.2rem, 4vw, 2.5rem);
 			}
 		}
 
@@ -247,7 +251,7 @@
 				width: 70%;
 			}
 			h1 {
-				font-size: 6vw;
+				font-size: clamp(1rem, 5vw, 2rem);
 			}
 		}
 
@@ -258,7 +262,7 @@
 				max-width: 400px;
 			}
 			h1 {
-				font-size: 7vw;
+				font-size: clamp(0.8rem, 6vw, 1.5rem);
 			}
 			button {
 				font-size: 1.2rem;
