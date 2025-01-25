@@ -31,28 +31,25 @@ app.logger.addHandler(log_handler)
 
 # Content Security Policy (CSP) mit SVG-Unterstützung
 csp = {
-    'default-src': [
-        "'self'",  
-        'https://stackpath.bootstrapcdn.com',  
-        'https://cdnjs.cloudflare.com'  
-    ],
-    'img-src': [
-        "'self'",  
-        'data:',  
-        'blob:',  
-        'https://example.com',  
-    ],
+    'default-src': ["'self'"],  # Verhindert externe Inhalte, außer von der eigenen Seite
     'script-src': [
         "'self'",
-        'https://stackpath.bootstrapcdn.com',
-        'https://cdnjs.cloudflare.com'
+        'https://stackpath.bootstrapcdn.com',  # Bootstrap
+        'https://cdnjs.cloudflare.com'  # Externe Scripts nur von diesen Quellen
     ],
     'style-src': [
         "'self'",
         'https://stackpath.bootstrapcdn.com',
         'https://fonts.googleapis.com'
     ],
-    'frame-ancestors': "'none'",  
+    'img-src': [
+        "'self'",
+        'data:',  
+        'blob:'
+    ],
+    'form-action': ["'self'"],  # Formulare dürfen nur an die eigene Domain gesendet werden
+    'frame-ancestors': "'none'",  # Schutz vor Clickjacking, keine Einbettung in iFrames
+    'object-src': "'none'",  # Verhindert das Einfügen unsicherer Plugins (z.B. Flash)
 }
 
 if os.environ.get("RENDER"):
@@ -122,6 +119,9 @@ def handle_csrf_error(e):
 @app.after_request
 def set_security_headers(response):
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    response.headers['X-Content-Type-Options'] = 'nosniff'  # MIME-Type-Sniffing verhindern
+    response.headers['X-Frame-Options'] = 'DENY'  # Clickjacking-Schutz
+    response.headers['Referrer-Policy'] = 'no-referrer-when-downgrade'
     return response
 
 @app.route("/datenschutz")

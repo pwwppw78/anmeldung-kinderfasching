@@ -11,44 +11,44 @@
         <h1>Fussballcamp 2025</h1>
         <p class="required-info">Felder mit <span class="required">*</span> sind Pflichtfelder.</p>
 
-        <form action="/" method="POST">
+        <form action="/" method="POST" id="registrationForm" novalidate>
             {{ form.hidden_tag() }}
 
             <!-- Name des Kindes -->
             <div class="form-group">
-                <label for="child_firstname">Name des Kindes <span class="required">*</span></label>
+                <label for="child_firstname">Vorname des Kindes <span class="required">*</span></label>
                 <div class="input-group">
-                    {{ form.child_firstname(class="form-control", placeholder="Vorname", required="required") }}
-                    {{ form.child_lastname(class="form-control", placeholder="Nachname", required="required") }}
+                    {{ form.child_firstname(id="child_firstname", class="form-control", placeholder="Vorname", required="required", pattern="[A-Za-zÄÖÜäöüß\s]+", aria_label="Vorname des Kindes") }}
+                    {{ form.child_lastname(id="child_lastname", class="form-control", placeholder="Nachname", required="required", pattern="[A-Za-zÄÖÜäöüß\s]+", aria_label="Nachname des Kindes") }}
                 </div>
             </div>
 
             <!-- Geburtsdatum -->
             <div class="form-group">
                 <label for="birthdate">Geburtsdatum des Kindes <span class="required">*</span></label>
-                {{ form.birthdate(class="form-control", required="required") }}
+                {{ form.birthdate(id="birthdate", class="form-control", required="required", pattern="\\d{2}-\\d{2}-\\d{4}", aria_label="Geburtsdatum des Kindes") }}
             </div>
 
             <!-- Lebensmittelallergien -->
             <div class="form-group">
-                 <label for="allergies">Hat das Kind Lebensmittelallergien? </label>
-                 <div class="input-group">
-                    {{ form.allergies(class="form-control", placeholder="Bitte Allergien angeben (falls vorhanden)") }}
-                  </div>
+                <label for="allergies">Hat das Kind Lebensmittelallergien?</label>
+                <div class="input-group">
+                    {{ form.allergies(id="allergies", class="form-control", placeholder="Bitte Allergien angeben (falls vorhanden)", aria_label="Lebensmittelallergien des Kindes") }}
+                </div>
             </div>
 
             <!-- Vereinsmitgliedschaft -->
             <div class="form-group">
                 <label for="club_membership">Vereinsmitgliedschaft <span class="required">*</span></label>
-                {{ form.club_membership(class="form-control", required="required") }}
+                {{ form.club_membership(id="club_membership", class="form-control", required="required", aria_label="Vereinsmitgliedschaft auswählen") }}
             </div>
 
             <!-- Name des Erziehungsberechtigten -->
             <div class="form-group">
-                <label for="parent_firstname">Name eines Erziehungsberechtigten <span class="required">*</span></label>
+                <label for="parent_firstname">Vorname eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
-                    {{ form.parent_firstname(class="form-control", placeholder="Vorname", required="required") }}
-                    {{ form.parent_lastname(class="form-control", placeholder="Nachname", required="required") }}
+                    {{ form.parent_firstname(id="parent_firstname", class="form-control", placeholder="Vorname", required="required", pattern="[A-Za-zÄÖÜäöüß\s]+", aria_label="Vorname Erziehungsberechtigter") }}
+                    {{ form.parent_lastname(id="parent_lastname", class="form-control", placeholder="Nachname", required="required", pattern="[A-Za-zÄÖÜäöüß\s]+", aria_label="Nachname Erziehungsberechtigter") }}
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
             <div class="form-group">
                 <label for="phone_number">Notfall-Telefonnummer eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
-                    {{ form.phone_number(class="form-control", placeholder="Telefonnummer", required="required") }}
+                    {{ form.phone_number(id="phone_number", class="form-control", placeholder="Telefonnummer", required="required", pattern="\\+?\\d{10,15}", aria_label="Notfall-Telefonnummer Erziehungsberechtigter") }}
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="email">E-Mail Adresse eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
-                    {{ form.email(class="form-control", placeholder="E-Mail", required="required") }}
+                    {{ form.email(id="email", class="form-control", placeholder="E-Mail", required="required", aria_label="E-Mail Adresse Erziehungsberechtigter") }}
                 </div>
             </div>
 
@@ -79,33 +79,35 @@
         </form>
     </div>
 
-
-    <!-- JavaScript für Dropdown-Farbe -->
+    <!-- JavaScript für Validierung -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let selectField = document.getElementById('club_membership');
-            let birthdateField = document.getElementById('birthdate');
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            let isValid = true;
 
-            function updateSelectColor() {
-                if (selectField.value === "") {
-                    selectField.style.color = '#c4c4cc';
-                } else {
-                    selectField.style.color = '#000000';
+            // Vorname und Nachname Validierung
+            let namePattern = /^[A-Za-zÄÖÜäöüß\s]+$/;
+            let phonePattern = /^\+?\d{10,15}$/;
+            let datePattern = /^\d{2}-\d{2}-\d{4}$/;
+
+            const fields = [
+                { id: 'child_firstname', pattern: namePattern, error: 'Bitte einen gültigen Vornamen eingeben.' },
+                { id: 'child_lastname', pattern: namePattern, error: 'Bitte einen gültigen Nachnamen eingeben.' },
+                { id: 'birthdate', pattern: datePattern, error: 'Bitte ein gültiges Geburtsdatum im Format DD-MM-YYYY eingeben.' },
+                { id: 'phone_number', pattern: phonePattern, error: 'Bitte eine gültige Telefonnummer eingeben.' }
+            ];
+
+            fields.forEach(field => {
+                let input = document.getElementById(field.id);
+                if (!field.pattern.test(input.value)) {
+                    alert(field.error);
+                    isValid = false;
+                    input.focus();
                 }
-            }
+            });
 
-            function updateDateColor() {
-                if (birthdateField.value === "") {
-                    birthdateField.style.color = '#c4c4cc';
-                } else {
-                    birthdateField.style.color = '#000000';
-                }
+            if (!isValid) {
+                event.preventDefault();  // Verhindert das Absenden des Formulars
             }
-
-            updateSelectColor();
-            updateDateColor();
-            selectField.addEventListener('change', updateSelectColor);
-            birthdateField.addEventListener('change', updateDateColor);
         });
     </script>
 </body>
