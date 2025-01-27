@@ -1,2 +1,0 @@
-# Verstecke sensible Dateien
-.env
