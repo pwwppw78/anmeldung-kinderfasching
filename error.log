@@ -56,3 +56,4 @@ Traceback (most recent call last):
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
 2025-01-25 21:50:41,454 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+2025-01-27 11:09:30,113 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico

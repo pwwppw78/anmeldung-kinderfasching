@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session, Response
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, EmailField, TelField, PasswordField, SubmitField, HiddenField
-from wtforms.validators import DataRequired, Email, Length, Regexp
+from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError
 from flask_talisman import Talisman
 import logging
 from logging.handlers import RotatingFileHandler
@@ -90,20 +90,29 @@ class RegistrationForm(FlaskForm):
         validators=[
             DataRequired(),
             Length(max=50),
-            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$')
         ]
     )
+
     child_lastname = StringField(
         "Nachname des Kindes",
         validators=[
             DataRequired(),
             Length(max=50),
-            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$')
         ]
     )
-    birthdate = DateField("Geburtsdatum", format='%Y-%m-%d', validators=[DataRequired()])
-    allergies = StringField("Lebensmittelallergien", validators=[Length(max=100)])
-    
+
+    birthdate = DateField(
+        "Geburtsdatum", format='%Y-%m-%d', 
+        validators=[DataRequired()]
+    )
+
+    allergies = StringField(
+        "Lebensmittelallergien", 
+        validators=[Length(max=100)]
+    )
+
     club_membership = SelectField(
         "Vereinsmitgliedschaft",
         choices=[
@@ -111,7 +120,7 @@ class RegistrationForm(FlaskForm):
             ("TSV Bitzfeld 1922 e.V.", "TSV Bitzfeld 1922 e.V."),
             ("TSV Schwabbach 1947 e.V.", "TSV Schwabbach 1947 e.V.")
         ],
-        validators=[DataRequired(message="Bitte eine Vereinsmitgliedschaft auswählen!")]
+        validators=[DataRequired()]
     )
 
     parent_firstname = StringField(
@@ -119,7 +128,7 @@ class RegistrationForm(FlaskForm):
         validators=[
             DataRequired(),
             Length(max=50),
-            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$')
         ]
     )
 
@@ -128,17 +137,23 @@ class RegistrationForm(FlaskForm):
         validators=[
             DataRequired(),
             Length(max=50),
-            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$', message="Nur Buchstaben und Leerzeichen erlaubt!")
+            Regexp(r'^[A-Za-zÄÖÜäöüß\s]+$')
         ]
     )
 
-    phone_number = TelField("Telefonnummer", validators=[DataRequired(), Length(min=10, max=15)])
+    phone_number = TelField(
+        "Telefonnummer", 
+	validators=[
+            DataRequired(), 
+            Length(min=6, max=15)
+	]
+    )
+
     email = EmailField(
-        "E-Mail",
-        validators=[
-            DataRequired(),
-            Email(message="Bitte eine gültige E-Mail-Adresse eingeben!")
-        ]
+	"E-Mail", 
+	validators=[
+            DataRequired()
+	]
     )
 
 class DeleteForm(FlaskForm):

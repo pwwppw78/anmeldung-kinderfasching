@@ -19,9 +19,7 @@
                 <label for="child_firstname">Name des Kindes <span class="required">*</span></label>
                 <div class="input-group">
                     {{ form.child_firstname(id="child_firstname", class="form-control", placeholder="Vorname", required="required", pattern="^[A-Za-zÄÖÜäöüß\\s]+$") }}
-                    <small id="child_firstname_error" class="error-message">Ungültige Eingabe. Bitte nur Buchstaben und Leerzeichen verwenden.</small>
                     {{ form.child_lastname(id="child_lastname", class="form-control", placeholder="Nachname", required="required", pattern="^[A-Za-zÄÖÜäöüß\\s]+$") }}
-                    <small id="child_lastname_error" class="error-message">Ungültige Eingabe. Bitte nur Buchstaben und Leerzeichen verwenden.</small>
                 </div>
             </div>
 
@@ -29,7 +27,6 @@
             <div class="form-group">
                 <label for="birthdate">Geburtsdatum des Kindes <span class="required">*</span></label>
                 {{ form.birthdate(id="birthdate", class="form-control", required="required", placeholder="TT.MM.JJJJ", pattern="\\d{2}\\.\\d{2}\\.\\d{4}", aria_label="Geburtsdatum des Kindes") }}
-                <small id="birthdate_error" class="error-message">Ungültiges Format. Bitte TT.MM.JJJJ verwenden.</small>
             </div>
 
             <!-- Lebensmittelallergien -->
@@ -48,7 +45,6 @@
                     <option value="TSV Bitzfeld 1922 e.V.">TSV Bitzfeld 1922 e.V.</option>
                     <option value="TSV Schwabbach 1947 e.V.">TSV Schwabbach 1947 e.V.</option>
                 </select>
-                <small id="club_membership_error" class="error-message">Bitte eine Option auswählen.</small>
             </div>
 
             <!-- Name des Erziehungsberechtigten -->
@@ -56,9 +52,7 @@
                 <label for="parent_firstname">Name eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
                     {{ form.parent_firstname(id="parent_firstname", class="form-control", placeholder="Vorname", required="required", pattern="^[A-Za-zÄÖÜäöüß\\s]+$", aria_label="Vorname Erziehungsberechtigter") }}
-                    <small id="parent_firstname_error" class="error-message">Ungültige Eingabe. Bitte nur Buchstaben und Leerzeichen verwenden.</small>
                     {{ form.parent_lastname(id="parent_lastname", class="form-control", placeholder="Nachname", required="required", pattern="^[A-Za-zÄÖÜäöüß\\s]+$", aria_label="Nachname Erziehungsberechtigter") }}
-                    <small id="parent_lastname_error" class="error-message">Ungültige Eingabe. Bitte nur Buchstaben und Leerzeichen verwenden.</small>
                 </div>
             </div>
 
@@ -67,7 +61,6 @@
                 <label for="phone_number">Notfall-Telefonnummer eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
                     {{ form.phone_number(id="phone_number", class="form-control", placeholder="Telefonnummer", required="required", pattern="\\+?\\d{10,15}", aria_label="Notfall-Telefonnummer Erziehungsberechtigter") }}
-                    <small id="phone_number_error" class="error-message">Bitte eine gültige Telefonnummer eingeben.</small>
                 </div>
             </div>
 
@@ -76,7 +69,6 @@
                 <label for="email">E-Mail Adresse eines Erziehungsberechtigten <span class="required">*</span></label>
                 <div class="input-group">
                     {{ form.email(id="email", class="form-control", placeholder="E-Mail", required="required", pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") }}
-                    <small id="email_error" class="error-message">Bitte eine gültige E-Mail-Adresse eingeben.</small>
                 </div>
             </div>
 
@@ -95,7 +87,6 @@
         </form>
     </div>
 
-    <!-- JavaScript für Validierung -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
