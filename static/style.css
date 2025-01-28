@@ -155,7 +155,7 @@
 			margin-bottom: 5px;
 		}
 
-	/* Submit-Button */
+	/* Buttons */
 		button {
 			background-color: #000000;
 			color: white;
@@ -163,11 +163,12 @@
 			border: none;
 			border-radius: 0.5rem;
 			cursor: pointer;
-			width: 100%;
+			width: fit-content;
 			font-size: 1.2rem;
 			font-weight: bold;
 			transition: background 0.3s;
-			margin-top: 40px;
+			display: block;
+			margin: 20px auto;
 		}
 
 	/*Button Hover-Effekt*/
@@ -187,6 +188,7 @@
 			border: none;
 			border-radius: 0.5rem;
 			cursor: pointer;
+			margin: 20px auto;
 		}
 
 	/* Zentrieren des Buttons */
@@ -209,20 +211,37 @@
 			color: #8b0000;
 		}
 
-/* Fehlermeldungen standardmäßig unsichtbar */
-.error-message {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-    display: none;
-}
+	/* Fehlermeldungen standardmäßig unsichtbar */
+		.error-message {
+			color: red;
+			font-size: 0.9rem;
+			margin-top: 5px;
+			display: none;
+		}
 
-/* Fehlerhafte Eingaben visuell hervorheben */
-.input-error {
-    border: 2px solid red !important;
-    background-color: #ffe6e6;
-}
+	/* Fehlerhafte Eingaben visuell hervorheben */
+		.input-error {
+			border: 2px solid red !important;
+			background-color: #ffe6e6;
+		}
 
+
+	/* Formatierung Tabelle */
+		table {
+			background-color: white; 
+			border-collapse: collapse; 
+			width: fit-content; 
+			margin: 20px auto;
+			font-size: 0.7rem;
+		}
+
+	/* Formatierung Zellen und Rahmen */
+		table th, table td {
+			padding: 5px; /* Abstand innerhalb der Zellen */
+			border: 1.5px solid black; /* Rahmenfarbe */
+			text-align: center; /* Ausrichtung des Textes */
+			line-height: 2;
+		}
 
 
 
