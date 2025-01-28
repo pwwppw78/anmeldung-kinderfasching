@@ -163,17 +163,18 @@
 			border: none;
 			border-radius: 0.5rem;
 			cursor: pointer;
-			width: fit-content;
+			width: 80%;
 			font-size: 1.2rem;
 			font-weight: bold;
 			transition: background 0.3s;
 			display: block;
-			margin: 20px auto;
+			margin: 30px auto;
 		}
 
 	/*Button Hover-Effekt*/
 		button:hover, .button:hover {
 			background-color: #b22222;
+			transform: scale(1.05);
 		}
 
 		.button {
@@ -225,12 +226,23 @@
 			background-color: #ffe6e6;
 		}
 
+	/* Tabelle-Container */
+		.table-container {
+			width: 90%;
+			max-width: 1000px;
+			margin: 20px auto;
+			background: rgba(255, 255, 255, 0.75);
+			padding: 20px;
+			box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
+			border-radius: 10px;
+			border: 4px solid #000000;
+		}
 
 	/* Formatierung Tabelle */
 		table {
 			background-color: white; 
 			border-collapse: collapse; 
-			width: fit-content; 
+			width: 100%; 
 			margin: 20px auto;
 			font-size: 0.7rem;
 		}
@@ -242,6 +254,65 @@
 			text-align: center; /* Ausrichtung des Textes */
 			line-height: 2;
 		}
+
+		.delete-button {
+			background-color: white;
+			color: black;
+			padding: 0.2rem;
+			border: 1px solid #000000;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			width: fit-content;
+			font-size: 0.6rem;
+			font-weight: normal;
+			display: block;
+			margin: 2px auto;
+		}
+
+		.delete-all-button {
+			background-color: #000000;
+			color: white;
+			padding: 0.8rem;
+			border: none;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			width: fit-content;
+			font-size: 1rem;
+			font-weight: bold;
+			display: block;
+			margin: 20px auto;
+		}
+
+		.paypal-button {
+			background-color: #003087; /* PayPal-Blau */
+			color: #FFFFFF; /* Weiß */
+			font-size: 1.2rem;
+			font-weight: bold;
+			border: 2px solid #003087;
+			border-radius: 0.5rem;
+			margin: 30px auto;
+			padding: 10px 20px;
+			text-decoration: none;
+			display: inline-block;
+			transition: background-color 0.3s, transform 0.2s;
+		}
+
+		.paypal-button:hover {
+			background-color: #ffb319; /* Dunkleres Gelb */
+			color: #003087; /* PayPal-Blau */
+			transform: scale(1.05);
+		}
+
+		input[type="password"] {
+			width: 80%;
+			padding: 0.8rem;
+			border: 2px solid #000;
+			border-radius: 0.5rem;
+			font-size: 1rem;
+			outline: none;
+		}
+
+
 
 
 

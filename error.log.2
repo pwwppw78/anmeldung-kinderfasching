@@ -1,4 +1,39 @@
-2025-01-28 16:19:29,685 - ERROR - Exception on / [POST]
+2025-01-28 15:58:46,024 - ERROR - Exception on /admin-login [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 259, in admin_login
+    return render_template("admin_login.html", form=form)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 18, in template
+    {{ form.submit(class="button" }}
+    ^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2025-01-28 15:58:46,043 - ERROR - 500 Error: http://127.0.0.1:10000/admin-login
+2025-01-28 16:17:34,385 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
     token = s.loads(data, max_age=time_limit)
@@ -13,7 +48,7 @@ Traceback (most recent call last):
     raise SignatureExpired(
     ...<3 lines>...
     )
-itsdangerous.exc.SignatureExpired: Signature age 3967 > 3600 seconds
+itsdangerous.exc.SignatureExpired: Signature age 3852 > 3600 seconds
 
 The above exception was the direct cause of the following exception:
 
@@ -73,80 +108,4 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:29,705 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-28 16:19:32,637 - ERROR - Exception on / [POST]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
-    token = s.loads(data, max_age=time_limit)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 204, in loads
-    base64d, timestamp = signer.unsign(
-                         ~~~~~~~~~~~~~^
-        s, max_age=max_age, return_timestamp=True
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 142, in unsign
-    raise SignatureExpired(
-    ...<3 lines>...
-    )
-itsdangerous.exc.SignatureExpired: Signature age 3970 > 3600 seconds
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 261, in protect
-    validate_csrf(self._get_csrf_token())
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 110, in validate_csrf
-    raise ValidationError("The CSRF token has expired.") from e
-wtforms.validators.ValidationError: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 865, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1239, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 229, in csrf_protect
-    self.protect()
-    ~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 264, in protect
-    self._error_response(e.args[0])
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 307, in _error_response
-    raise CSRFError(reason)
-flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 752, in handle_user_exception
-    return self.handle_http_exception(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 727, in handle_http_exception
-    return self.ensure_sync(handler)(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 230, in handle_csrf_error
-    return render_template("form.html"), 400
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\form.html", line 20, in top-level template code
-    {{ form.hidden_tag() }}
-    ^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:32,648 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-28 16:17:34,405 - ERROR - 500 Error: http://127.0.0.1:10000/

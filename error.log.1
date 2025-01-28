@@ -1,4 +1,4 @@
-2025-01-28 16:19:29,685 - ERROR - Exception on / [POST]
+2025-01-28 16:17:37,810 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
     token = s.loads(data, max_age=time_limit)
@@ -13,7 +13,7 @@ Traceback (most recent call last):
     raise SignatureExpired(
     ...<3 lines>...
     )
-itsdangerous.exc.SignatureExpired: Signature age 3967 > 3600 seconds
+itsdangerous.exc.SignatureExpired: Signature age 3855 > 3600 seconds
 
 The above exception was the direct cause of the following exception:
 
@@ -73,8 +73,8 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:29,705 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-28 16:19:32,637 - ERROR - Exception on / [POST]
+2025-01-28 16:17:37,827 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-28 16:17:50,953 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
     token = s.loads(data, max_age=time_limit)
@@ -89,7 +89,7 @@ Traceback (most recent call last):
     raise SignatureExpired(
     ...<3 lines>...
     )
-itsdangerous.exc.SignatureExpired: Signature age 3970 > 3600 seconds
+itsdangerous.exc.SignatureExpired: Signature age 3868 > 3600 seconds
 
 The above exception was the direct cause of the following exception:
 
@@ -149,4 +149,4 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:32,648 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-28 16:17:50,967 - ERROR - 500 Error: http://127.0.0.1:10000/

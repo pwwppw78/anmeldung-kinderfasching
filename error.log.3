@@ -1,29 +1,11 @@
-2025-01-28 16:19:29,685 - ERROR - Exception on / [POST]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
-    token = s.loads(data, max_age=time_limit)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 204, in loads
-    base64d, timestamp = signer.unsign(
-                         ~~~~~~~~~~~~~^
-        s, max_age=max_age, return_timestamp=True
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 142, in unsign
-    raise SignatureExpired(
-    ...<3 lines>...
-    )
-itsdangerous.exc.SignatureExpired: Signature age 3967 > 3600 seconds
-
-The above exception was the direct cause of the following exception:
-
+2025-01-28 15:36:20,628 - ERROR - Exception on /delete-entry/1 [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 261, in protect
     validate_csrf(self._get_csrf_token())
     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 110, in validate_csrf
-    raise ValidationError("The CSRF token has expired.") from e
-wtforms.validators.ValidationError: The CSRF token has expired.
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 100, in validate_csrf
+    raise ValidationError("The CSRF token is missing.")
+wtforms.validators.ValidationError: The CSRF token is missing.
 
 During handling of the above exception, another exception occurred:
 
@@ -40,7 +22,7 @@ Traceback (most recent call last):
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 307, in _error_response
     raise CSRFError(reason)
-flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token has expired.
+flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token is missing.
 
 During handling of the above exception, another exception occurred:
 
@@ -73,33 +55,15 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:29,705 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-28 16:19:32,637 - ERROR - Exception on / [POST]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
-    token = s.loads(data, max_age=time_limit)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 204, in loads
-    base64d, timestamp = signer.unsign(
-                         ~~~~~~~~~~~~~^
-        s, max_age=max_age, return_timestamp=True
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 142, in unsign
-    raise SignatureExpired(
-    ...<3 lines>...
-    )
-itsdangerous.exc.SignatureExpired: Signature age 3970 > 3600 seconds
-
-The above exception was the direct cause of the following exception:
-
+2025-01-28 15:36:20,732 - ERROR - 500 Error: http://127.0.0.1:10000/delete-entry/1
+2025-01-28 15:37:16,198 - ERROR - Exception on /delete-entry/1 [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 261, in protect
     validate_csrf(self._get_csrf_token())
     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 110, in validate_csrf
-    raise ValidationError("The CSRF token has expired.") from e
-wtforms.validators.ValidationError: The CSRF token has expired.
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 100, in validate_csrf
+    raise ValidationError("The CSRF token is missing.")
+wtforms.validators.ValidationError: The CSRF token is missing.
 
 During handling of the above exception, another exception occurred:
 
@@ -116,7 +80,7 @@ Traceback (most recent call last):
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 307, in _error_response
     raise CSRFError(reason)
-flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token has expired.
+flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token is missing.
 
 During handling of the above exception, another exception occurred:
 
@@ -149,4 +113,4 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:32,648 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-28 15:37:16,202 - ERROR - 500 Error: http://127.0.0.1:10000/delete-entry/1

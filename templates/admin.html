@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon-tsv-bitzfeld.png') }}">
 </head>
 <body>
+    <div class="table-container">
     <h1>Registrierte Teilnehmer</h1>
     <table border="1">
         <tr>
@@ -31,8 +32,8 @@
             <td>
                 <!-- Formular zum Löschen eines einzelnen Eintrags -->
                 <form action="{{ url_for('delete_entry', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
-                    {{ form.hidden_tag() }}
-                    <button type="submit">Löschen</button>
+            {{ form.hidden_tag() }}
+                    <button type="submit" class="delete-button">Löschen</button>
                 </form>
             </td>
         </tr>
@@ -43,8 +44,8 @@
 
     <!-- Formular zum Löschen aller Einträge -->
     <form action="{{ url_for('delete_all_entries') }}" method="post" onsubmit="return confirm('Möchtest du wirklich alle Einträge löschen?');">
-        {{ form.hidden_tag() }}
-        <button type="submit">Alle Einträge löschen</button>
+            {{ form.hidden_tag() }}
+        <button type="submit" class="delete-all-button">Alle Einträge löschen</button>
     </form>
 
     <br>
@@ -53,6 +54,6 @@
     <div class="button-container">
         <a href="{{ url_for('export_excel') }}" class="button">Daten als Excel exportieren</a>
     </div>
-
+    </div>
 </body>
 </html>
