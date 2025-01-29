@@ -11,6 +11,7 @@ from logging.handlers import RotatingFileHandler
 from flask_wtf.csrf import CSRFProtect
 from flask_wtf.csrf import CSRFError
 from datetime import datetime, date
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 load_dotenv()
@@ -19,6 +20,7 @@ from io import BytesIO
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import threading
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -28,6 +30,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registrations.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # Sicherheitskonfiguration für Cookies
 app.config['SESSION_COOKIE_SECURE'] = True  # Cookies nur über HTTPS senden
@@ -175,6 +178,7 @@ class Registration(db.Model):
     parent_lastname = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.String(15), nullable=False)
     email = db.Column(db.String(100), nullable=False)
+    confirmed = db.Column(db.Boolean, default=False)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -290,7 +294,7 @@ def logout():
 
 @app.route("/delete-entry/<int:entry_id>", methods=["POST"])
 def delete_entry(entry_id):
-    entry = Registration.query.get(entry_id)
+    entry = db.session.get(Registration, entry_id)
     if entry:
         db.session.delete(entry)
         db.session.commit()
@@ -299,10 +303,8 @@ def delete_entry(entry_id):
         flash("Eintrag nicht gefunden.", "danger")
     return redirect(url_for("admin"))
 
-@app.route("/confirm-mail/<int:entry_id>", methods=["POST"])
-def confirm_mail(entry_id):
-    entry = Registration.query.get(entry_id)
-    if entry:
+def send_confirmation_email(entry):
+    with app.app_context():  # Wichtig, damit Flask im Thread funktioniert
         try:
             # SMTP-Einstellungen für den Mail-Server
             SMTP_SERVER = "smtp.gmail.com" 
@@ -353,15 +355,32 @@ Jugendausschuss des TSV Bitzfeld
             server.sendmail(SMTP_USER, entry.email, msg.as_string())
             server.quit()
 
-            flash("Bestätigungsmail wurde erfolgreich versandt.", "success")
-
         except Exception as e:
-            flash(f"Fehler beim Senden der Bestätigungsmail: {e}", "danger")
+            print(f"Mail wird im Hintergrund  gesendet: {e}")
 
-    else:
-        flash("Eintrag nicht gefunden.", "danger")
+@app.route("/confirm-mail/<int:entry_id>", methods=["POST"])
+def confirm_mail(entry_id):
+    with app.app_context():  # Stellt sicher, dass Flask im richtigen Kontext arbeitet
+        entry = db.session.get(Registration, entry_id)  # Korrekte SQLAlchemy 2.0 Abfrage
+
+        if entry:
+            try:
+                # Eintrag als "bestätigt" markieren
+                entry.confirmed = True
+                db.session.commit()
+
+                # Sende die Mail in einem separaten Thread
+                email_thread = threading.Thread(target=send_confirmation_email, args=(entry,))
+                email_thread.start()
+
+                flash("Bestätigungsmail wurde erfolgreich versandt.", "success")
+            except Exception as e:
+                flash(f"Fehler beim Senden der Bestätigungsmail: {e}", "danger")
+        else:
+            flash("Eintrag nicht gefunden.", "danger")
 
     return redirect(url_for("admin"))
+
 @app.route("/delete-all-entries", methods=["POST"])
 def delete_all_entries():
     try:

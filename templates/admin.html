@@ -23,7 +23,7 @@
             <th>Aktionen</th>
         </tr>
         {% for registration in registrations %}
-        <tr>
+        <tr {% if registration.confirmed %} class="confirmed" {% endif %}>
             <td>{{ registration.child_firstname }}</td>
             <td>{{ registration.child_lastname }}</td>
             <td>{{ registration.birthdate }}</td>

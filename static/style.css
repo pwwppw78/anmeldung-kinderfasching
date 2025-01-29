@@ -294,6 +294,12 @@
 			margin: 2px auto;
 		}
 
+	/* Bestätigte Zeilen in Grün einfärben */
+		.confirmed {
+			background-color: #8bf792 !important;
+		}
+
+
 	/* Button zum Löschen aller Zeilen der Tabelle */
 		.delete-all-button {
 			background-color: #000000;

@@ -1,6 +1,4 @@
-2025-01-29 13:13:40,026 - ERROR - 404 Error: http://127.0.0.1:10000/500
-2025-01-29 13:13:40,629 - ERROR - 404 Error: http://127.0.0.1:10000/500
-2025-01-29 13:16:08,315 - ERROR - Exception on /500 [GET]
+2025-01-29 15:05:31,529 - ERROR - Exception on /admin [GET]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -11,50 +9,30 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 348, in trigger_500
-    raise Exception("Dies ist ein absichtlich ausgelöster 500-Fehler.")
-Exception: Dies ist ein absichtlich ausgelöster 500-Fehler.
-2025-01-29 13:16:08,340 - ERROR - 500 Error: http://127.0.0.1:10000/500
-2025-01-29 13:16:28,126 - ERROR - 404 Error: http://127.0.0.1:10000/404
-2025-01-29 13:27:04,114 - ERROR - Exception on /admin [GET]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 280, in admin
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 286, in admin
     return render_template("admin.html", registrations=registrations, form=form)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 43, in top-level template code
-    <form action="{{ url_for('confirm_mail', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
-    ^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1071, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1060, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-        endpoint,
-    ...<3 lines>...
-        force_external=_external,
-    )
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'confirm_mail' with values ['entry_id']. Did you mean 'export_excel' instead?
-2025-01-29 13:27:04,241 - ERROR - 500 Error: http://127.0.0.1:10000/admin
-2025-01-29 13:27:09,945 - ERROR - Exception on /admin [GET]
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 46, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'.
+2025-01-29 15:05:31,582 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+2025-01-29 15:08:38,385 - ERROR - Exception on /admin [GET]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,30 +43,60 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 280, in admin
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 286, in admin
     return render_template("admin.html", registrations=registrations, form=form)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 43, in top-level template code
-    <form action="{{ url_for('confirm_mail', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
-    ^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1071, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1060, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-        endpoint,
-    ...<3 lines>...
-        force_external=_external,
-    )
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'confirm_mail' with values ['entry_id']. Did you mean 'export_excel' instead?
-2025-01-29 13:27:09,949 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 46, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'.
+2025-01-29 15:08:38,390 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+2025-01-29 15:08:45,269 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 286, in admin
+    return render_template("admin.html", registrations=registrations, form=form)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 46, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'.
+2025-01-29 15:08:45,273 - ERROR - 500 Error: http://127.0.0.1:10000/admin
