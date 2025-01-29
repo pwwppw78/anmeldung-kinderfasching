@@ -68,7 +68,7 @@
 		margin-bottom: 30px;
 		max-width: 100%;
 		white-space: normal; /* Erlaubt Zeilenumbruch */
-		overflow: vissible; /* Zeigt den gesamten Text */
+		overflow: visible; /* Zeigt den gesamten Text */
 		}
 
 	/* Abschnittlabels */
@@ -172,7 +172,6 @@
 			padding: 0.5rem;
 			border: 2px solid #000000;
 			border-radius: 0.5rem;
-			font-size: 0.8rem;
 			margin-bottom: 5px;
 			font-family: 'Arial', sans-serif;
 			font-size: 0.8rem;
