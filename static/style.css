@@ -1,3 +1,8 @@
+/* Kinderfasching */
+
+
+
+
 /* Allgemeines Styling */
 
 
@@ -35,10 +40,22 @@
 			border: 4px solid #000000;
 		}
 
+	/* Tabellen-Container */
+		.table-container {
+			width: 90%;
+			max-width: 1000px;
+			margin: 20px auto;
+			background: rgba(255, 255, 255, 0.75);
+			padding: 20px;
+			box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
+			border-radius: 10px;
+			border: 4px solid #000000;
+		}
 
 
 
-/*Inhalt*/
+
+/*Beschriftungen*/
 
 
 	/* Überschrift */
@@ -54,16 +71,6 @@
 		overflow: vissible; /* Zeigt den gesamten Text */
 		}
 
-
-	/* Pflichtfeld-Hinweis */
-		.required-info {
-			font-size: 12px;
-			font-style: italic;
-			color: #8b0000;
-			text-align: right;
-			margin-bottom: 20px;
-		}
-
 	/* Abschnittlabels */
 		label {
 			display: block;
@@ -72,21 +79,42 @@
 			margin-bottom: 5px;
 		}
 
-	/* Pflicht-Sternchen */
+
+
+
+/* Pflichtfeld-Hinweis */
+
+
+	/* Text */
+		.required-info {
+			font-size: 12px;
+			font-style: italic;
+			color: #8b0000;
+			text-align: right;
+			margin-bottom: 20px;
+		}
+
+	/* Sternchen */
 		.required {
 			color: #b22222;
 		}
 
+
+
+
+/* Platzhalter */
+
+
 	/* Einheitliches Styling für Platzhalter in allen Feldern */
 		input::placeholder, input[type="date"], select {
-			color: #c4c4cc;  /* Graue Farbe für Platzhalter */
-			font-style: normal; /* Kein Italic */
+			color: #c4c4cc;
+			font-style: normal;
 		}
 
 	/* Platzhalter-Option grau beibehalten */
 		select option[value=""] {
 			color: #c4c4cc !important;
-			font-style: normal;  /* Kein Italic */
+			font-style: normal;
 		}
 
 	/* Alle anderen Optionen schwarz machen */
@@ -101,7 +129,13 @@
 			font-style: normal;
 		}
 
-	/* Input-Felder */
+
+
+
+/* Input-Felder */
+
+
+	/* Felder */
 		input, select, textarea {
 			width: 45%;
 			padding: 0.5rem;
@@ -112,14 +146,14 @@
 			margin-bottom: 5px;
 		}
 
-	/* Eingabefelder Fokus- und Hovereffekt */
+	/* Fokus- und Hovereffekt */
 		input:focus, input[type="date"]:focus, select:focus, textarea:focus, input:hover, input[type="date"]:hover, select:hover, textarea:hover {
 			border-color: #000000;
 			outline: none;
 			box-shadow: 0px 0px 5px #000000;
 		}
 
-	/*Mehrere Input-Felder nebeneinander platzieren */
+	/*Mehrere nebeneinander platzieren */
 		.input-group {
 			display: flex;
 			gap: 10px;
@@ -131,7 +165,7 @@
 			max-width: 300px;
 		}
 
-	/*Date-Feld Sytling */
+	/*Date-Feld Styling */
 		input[type="date"] {
 			margin-top: 2px;
 			width: 45%;
@@ -144,7 +178,7 @@
 			font-size: 0.8rem;
 		}
 
-	/*Select-Feld Sytling */
+	/*Select-Feld Styling */
 		select {
 			margin-top: 2px;
 			width: 45%;
@@ -155,7 +189,23 @@
 			margin-bottom: 5px;
 		}
 
-	/* Buttons */
+	/* Passwort-Feld Styling */
+		input[type="password"] {
+			width: 80%;
+			padding: 0.8rem;
+			border: 2px solid #000;
+			border-radius: 0.5rem;
+			font-size: 1rem;
+			outline: none;
+		}
+
+
+
+
+/* Buttons */
+
+
+	/* große Buttons */
 		button {
 			background-color: #000000;
 			color: white;
@@ -171,12 +221,13 @@
 			margin: 30px auto;
 		}
 
-	/*Button Hover-Effekt*/
+	/* große Button Hover-Effekt*/
 		button:hover, .button:hover {
 			background-color: #b22222;
 			transform: scale(1.05);
 		}
 
+	/* class =button */
 		.button {
 			display: inline-block;
 			padding: 1rem;
@@ -200,6 +251,62 @@
 			margin-top: 20px; 
 		}
 
+	/* Button zum Löschen einzelner Zeilen der Tabelle */
+		.delete-button {
+			background-color: white;
+			color: black;
+			padding: 0.2rem;
+			border: 1px solid #000000;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			width: fit-content;
+			font-size: 0.6rem;
+			font-weight: normal;
+			display: block;
+			margin: 2px auto;
+		}
+
+	/* Button zum Löschen aller Zeilen der Tabelle */
+		.delete-all-button {
+			background-color: #000000;
+			color: white;
+			padding: 0.8rem;
+			border: none;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			width: fit-content;
+			font-size: 1rem;
+			font-weight: bold;
+			display: block;
+			margin: 20px auto;
+		}
+
+	/* Button zur PayPal-Weiterleitung */
+		.paypal-button {
+			background-color: #003087; /* PayPal-Blau */
+			color: #FFFFFF; /* Weiß */
+			font-size: 1.2rem;
+			font-weight: bold;
+			border: 2px solid #003087;
+			border-radius: 0.5rem;
+			margin: 30px auto;
+			padding: 10px 20px;
+			text-decoration: none;
+			display: inline-block;
+			transition: background-color 0.3s, transform 0.2s;
+		}
+
+	/* Hover-Effekt PayPal-Button */
+		.paypal-button:hover {
+			background-color: #ffb319; /* Dunkleres Gelb */
+			color: #003087; /* PayPal-Blau */
+			transform: scale(1.05);
+		}
+
+
+/* Datenschutz-Link */
+
+
 	/* Formatierung Datenschutz */
 		.privacy-link {
 			color: #b22222; /* Dunkelrot für Hervorhebung */
@@ -211,6 +318,10 @@
 		.privacy-link:hover {
 			color: #8b0000;
 		}
+
+
+/* Fehlermeldungen */
+
 
 	/* Fehlermeldungen standardmäßig unsichtbar */
 		.error-message {
@@ -226,17 +337,11 @@
 			background-color: #ffe6e6;
 		}
 
-	/* Tabelle-Container */
-		.table-container {
-			width: 90%;
-			max-width: 1000px;
-			margin: 20px auto;
-			background: rgba(255, 255, 255, 0.75);
-			padding: 20px;
-			box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
-			border-radius: 10px;
-			border: 4px solid #000000;
-		}
+
+
+
+/* Tabelle */
+
 
 	/* Formatierung Tabelle */
 		table {
@@ -254,64 +359,6 @@
 			text-align: center; /* Ausrichtung des Textes */
 			line-height: 2;
 		}
-
-		.delete-button {
-			background-color: white;
-			color: black;
-			padding: 0.2rem;
-			border: 1px solid #000000;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			width: fit-content;
-			font-size: 0.6rem;
-			font-weight: normal;
-			display: block;
-			margin: 2px auto;
-		}
-
-		.delete-all-button {
-			background-color: #000000;
-			color: white;
-			padding: 0.8rem;
-			border: none;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			width: fit-content;
-			font-size: 1rem;
-			font-weight: bold;
-			display: block;
-			margin: 20px auto;
-		}
-
-		.paypal-button {
-			background-color: #003087; /* PayPal-Blau */
-			color: #FFFFFF; /* Weiß */
-			font-size: 1.2rem;
-			font-weight: bold;
-			border: 2px solid #003087;
-			border-radius: 0.5rem;
-			margin: 30px auto;
-			padding: 10px 20px;
-			text-decoration: none;
-			display: inline-block;
-			transition: background-color 0.3s, transform 0.2s;
-		}
-
-		.paypal-button:hover {
-			background-color: #ffb319; /* Dunkleres Gelb */
-			color: #003087; /* PayPal-Blau */
-			transform: scale(1.05);
-		}
-
-		input[type="password"] {
-			width: 80%;
-			padding: 0.8rem;
-			border: 2px solid #000;
-			border-radius: 0.5rem;
-			font-size: 1rem;
-			outline: none;
-		}
-
 
 
 
