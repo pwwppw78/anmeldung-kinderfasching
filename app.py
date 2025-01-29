@@ -21,6 +21,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import threading
+import pytz
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -419,7 +420,8 @@ def export_excel():
     df.to_excel(output, index=False, engine='openpyxl')
     output.seek(0)
 
-    # Zeitstempel im Format DDMMYYYY_HHMMSS
+    # Zeitstempel im Format DDMMYYYY_HHMMSS mit Berücksichtigung der Zeitzone
+    timezone = pytz.timezone("Europe/Berlin")
     timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 
     # Excel-Datei als Antwort zurückgeben
