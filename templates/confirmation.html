@@ -8,17 +8,39 @@
     <title>Bestätigung</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon-tsv-bitzfeld.png') }}">
+
 </head>
 <body>
     <div class="container">
         <h1>Vielen Dank für Ihre Anmeldung!</h1>
-        <p>Die Anmeldung für <strong>{{ child_firstname }}</strong> <strong>{{ child_lastname }}</strong>, 
-geboren am <strong>{{ birthdate }}</strong>, wurde erfolgreich übermittelt. <br><br>Bitte prüfen Sie das Postfach der von Ihnen angegebenen E-Mail-Adresse. Dort finden Sie eine Kopie der von Ihnen angegebenen Daten. <br><br>Um die Anmeldung abzuschließen ist die Bezahlung via <strong>PayPal Friends & Family</strong> erforderlich. </p>
+        <p>Die Anmeldedaten für <strong>{{ child_firstname }}</strong> <strong>{{ child_lastname }}</strong>, 
+        geboren am <strong>{{ birthdate }}</strong>, wurde erfolgreich übermittelt. <br><br>
+        Um die Anmeldung abzuschließen, ist die Bezahlung der Eintrittskarte per <strong>PayPal Friends & Family</strong> oder <strong>Banküberweisung</strong> erforderlich. <br><br>
+        Die <strong>Bestätigung der Anmeldung</strong> erfolgt innerhalb von <strong>24 Stunden</strong> nach Eingang der Zahlung per Mail. <br><br></p>
         
-        <div class="button-container">
-    		<a href="https://paypal.me/pascalweibler?country.x=DE&locale.x=de_DE" target="_blank" class="paypal-button">Mit PayPal Friends & Family zahlen</a>
-	</div>
+        <!-- Buttons für PayPal und Banküberweisung -->
+        <div class="button-wrapper">
+            <button onclick="window.open('https://paypal.me/pascalweibler?country.x=DE&locale.x=de_DE', '_blank')" class="paypal-button">PayPal</button>
+            <button onclick="toggleBankDetails()" class="bank-button">Banküberweisung</button>
+        </div>
+
+
+
+        <!-- Versteckte Bankdaten mit separater Div für bessere Kontrolle -->
+        <div id="bank-details" style="display: none;">
+            <div class="bank-details-container">
+                <h2>Banküberweisung</h2>
+                <p><strong>Empfänger:</strong> Pascal Weibler</p>
+                <p><strong>IBAN:</strong> DE11 6006 9714 0422 5350 01</p>
+                <p><strong>BIC:</strong> GENODES1IBR</p>
+                <p><strong>Verwendungszweck:</strong> Kinderfasching 2025 - {{ child_firstname }} {{ child_lastname }}</p>
+                <p><br><br>Bitte überweisen Sie den Betrag innerhalb von 3 Werktagen.</p>
+            </div>
+        </div>
+
     </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
-
