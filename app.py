@@ -16,6 +16,9 @@ from dotenv import load_dotenv
 load_dotenv()
 import pandas as pd
 from io import BytesIO
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -296,6 +299,69 @@ def delete_entry(entry_id):
         flash("Eintrag nicht gefunden.", "danger")
     return redirect(url_for("admin"))
 
+@app.route("/confirm-mail/<int:entry_id>", methods=["POST"])
+def confirm_mail(entry_id):
+    entry = Registration.query.get(entry_id)
+    if entry:
+        try:
+            # SMTP-Einstellungen für den Mail-Server
+            SMTP_SERVER = "smtp.gmail.com" 
+            SMTP_PORT = 587
+            SMTP_USER = "anmeldung.tsvbitzfeld1922@gmail.com"  
+            SMTP_PASS = "hfkl vsbc dcvp cuja" 
+
+            # E-Mail-Versand vorbereiten
+            msg = MIMEMultipart()
+            msg["From"] = SMTP_USER
+            msg["To"] = entry.email
+            msg["Subject"] = "✅ Anmeldungsbestätigung 🎉"
+
+            email_body = f"""
+Hallo {entry.parent_firstname} {entry.parent_lastname},
+
+hiermit bestätigen wir Ihnen die Anmeldung von {entry.child_firstname} {entry.child_lastname} zum Kinderfasching! 🎉
+Ihre Zahlung ist erfolgreich eingegangen. 
+
+Ihre Anmeldedaten im Überblick:
+
+👤 Kind: {entry.child_firstname} {entry.child_lastname}  
+📅 Geburtsdatum: {entry.birthdate}  
+🌰 Lebensmittelallergien: {entry.allergies if entry.allergies else "-"}  
+🏅 Verein: {entry.club_membership}  
+
+👨‍👩‍👦 Erziehungsberechtigte/r: {entry.parent_firstname} {entry.parent_lastname}  
+📞 Notfall-Telefonnummer: {entry.phone_number}  
+📧 E-Mail: {entry.email}  
+
+
+Falls Sie Fragen haben, erreichen Sie uns unter anmeldung.tsvbitzfeld1922@gmail.com.
+Wir freuen uns auf einen tollen Tag! 🎊🎈
+
+
+Viele Grüße
+
+Jugendausschuss des TSV Bitzfeld
+
+            """
+
+            msg.attach(MIMEText(email_body, "plain"))
+
+            # Verbindung zum SMTP-Server aufbauen und E-Mail senden
+            server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.sendmail(SMTP_USER, entry.email, msg.as_string())
+            server.quit()
+
+            flash("Bestätigungsmail wurde erfolgreich versandt.", "success")
+
+        except Exception as e:
+            flash(f"Fehler beim Senden der Bestätigungsmail: {e}", "danger")
+
+    else:
+        flash("Eintrag nicht gefunden.", "danger")
+
+    return redirect(url_for("admin"))
 @app.route("/delete-all-entries", methods=["POST"])
 def delete_all_entries():
     try:
@@ -320,6 +386,7 @@ def export_excel():
         "Vorname": r.child_firstname,
         "Nachname": r.child_lastname,
         "Geburtsdatum": r.birthdate,
+        "Allergien": r.allergies if r.allergies else "-",
         "Vereinsmitgliedschaft": r.club_membership,
         "Telefon": r.phone_number,
         "E-Mail": r.email
@@ -333,14 +400,18 @@ def export_excel():
     df.to_excel(output, index=False, engine='openpyxl')
     output.seek(0)
 
+    # Zeitstempel im Format DDMMYYYY_HHMMSS
+    timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+
     # Excel-Datei als Antwort zurückgeben
     response = Response(
         output.getvalue(),
         content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
-    response.headers["Content-Disposition"] = "attachment; filename=registrations.xlsx"
+    response.headers["Content-Disposition"] = f"attachment; filename=Anmeldungen_Stand-{timestamp}.xlsx"
     
     return response
+
 
 
 

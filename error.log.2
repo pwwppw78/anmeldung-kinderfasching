@@ -1,4 +1,4 @@
-2025-01-28 16:17:37,810 - ERROR - Exception on / [POST]
+2025-01-29 12:31:01,866 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
     token = s.loads(data, max_age=time_limit)
@@ -13,7 +13,7 @@ Traceback (most recent call last):
     raise SignatureExpired(
     ...<3 lines>...
     )
-itsdangerous.exc.SignatureExpired: Signature age 3855 > 3600 seconds
+itsdangerous.exc.SignatureExpired: Signature age 4440 > 3600 seconds
 
 The above exception was the direct cause of the following exception:
 
@@ -73,8 +73,8 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:17:37,827 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-28 16:17:50,953 - ERROR - Exception on / [POST]
+2025-01-29 12:31:02,016 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-29 12:31:13,873 - ERROR - Exception on / [POST]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
     token = s.loads(data, max_age=time_limit)
@@ -89,7 +89,7 @@ Traceback (most recent call last):
     raise SignatureExpired(
     ...<3 lines>...
     )
-itsdangerous.exc.SignatureExpired: Signature age 3868 > 3600 seconds
+itsdangerous.exc.SignatureExpired: Signature age 4452 > 3600 seconds
 
 The above exception was the direct cause of the following exception:
 
@@ -149,4 +149,11 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:17:50,967 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-29 12:31:13,878 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-01-29 13:09:39,967 - ERROR - 404 Error: http://127.0.0.1:10000/404
+2025-01-29 13:09:54,416 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:12:17,061 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:12:33,780 - ERROR - 404 Error: http://127.0.0.1:10000/404
+2025-01-29 13:12:41,406 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:13:10,765 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:13:16,564 - ERROR - 404 Error: http://127.0.0.1:10000/404

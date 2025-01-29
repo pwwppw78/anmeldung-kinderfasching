@@ -1,63 +1,34 @@
-2025-01-28 16:19:29,685 - ERROR - Exception on / [POST]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
-    token = s.loads(data, max_age=time_limit)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 204, in loads
-    base64d, timestamp = signer.unsign(
-                         ~~~~~~~~~~~~~^
-        s, max_age=max_age, return_timestamp=True
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 142, in unsign
-    raise SignatureExpired(
-    ...<3 lines>...
-    )
-itsdangerous.exc.SignatureExpired: Signature age 3967 > 3600 seconds
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 261, in protect
-    validate_csrf(self._get_csrf_token())
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 110, in validate_csrf
-    raise ValidationError("The CSRF token has expired.") from e
-wtforms.validators.ValidationError: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 865, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1239, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 229, in csrf_protect
-    self.protect()
-    ~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 264, in protect
-    self._error_response(e.args[0])
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 307, in _error_response
-    raise CSRFError(reason)
-flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
+2025-01-29 13:13:40,026 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:13:40,629 - ERROR - 404 Error: http://127.0.0.1:10000/500
+2025-01-29 13:16:08,315 - ERROR - Exception on /500 [GET]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 752, in handle_user_exception
-    return self.handle_http_exception(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 727, in handle_http_exception
-    return self.ensure_sync(handler)(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 230, in handle_csrf_error
-    return render_template("form.html"), 400
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 348, in trigger_500
+    raise Exception("Dies ist ein absichtlich ausgelöster 500-Fehler.")
+Exception: Dies ist ein absichtlich ausgelöster 500-Fehler.
+2025-01-29 13:16:08,340 - ERROR - 500 Error: http://127.0.0.1:10000/500
+2025-01-29 13:16:28,126 - ERROR - 404 Error: http://127.0.0.1:10000/404
+2025-01-29 13:27:04,114 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 280, in admin
+    return render_template("admin.html", registrations=registrations, form=form)
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
     return _render(app, template, context)
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
@@ -67,73 +38,35 @@ Traceback (most recent call last):
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\form.html", line 20, in top-level template code
-    {{ form.hidden_tag() }}
-    ^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:29,705 - ERROR - 500 Error: http://127.0.0.1:10000/
-2025-01-28 16:19:32,637 - ERROR - Exception on / [POST]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 108, in validate_csrf
-    token = s.loads(data, max_age=time_limit)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 204, in loads
-    base64d, timestamp = signer.unsign(
-                         ~~~~~~~~~~~~~^
-        s, max_age=max_age, return_timestamp=True
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\itsdangerous\timed.py", line 142, in unsign
-    raise SignatureExpired(
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 43, in top-level template code
+    <form action="{{ url_for('confirm_mail', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
+    ^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
     ...<3 lines>...
+        force_external=_external,
     )
-itsdangerous.exc.SignatureExpired: Signature age 3970 > 3600 seconds
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 261, in protect
-    validate_csrf(self._get_csrf_token())
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 110, in validate_csrf
-    raise ValidationError("The CSRF token has expired.") from e
-wtforms.validators.ValidationError: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 865, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1239, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 229, in csrf_protect
-    self.protect()
-    ~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 264, in protect
-    self._error_response(e.args[0])
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_wtf\csrf.py", line 307, in _error_response
-    raise CSRFError(reason)
-flask_wtf.csrf.CSRFError: 400 Bad Request: The CSRF token has expired.
-
-During handling of the above exception, another exception occurred:
-
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'confirm_mail' with values ['entry_id']. Did you mean 'export_excel' instead?
+2025-01-29 13:27:04,241 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+2025-01-29 13:27:09,945 - ERROR - Exception on /admin [GET]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 752, in handle_user_exception
-    return self.handle_http_exception(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 727, in handle_http_exception
-    return self.ensure_sync(handler)(e)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 230, in handle_csrf_error
-    return render_template("form.html"), 400
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 280, in admin
+    return render_template("admin.html", registrations=registrations, form=form)
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
     return _render(app, template, context)
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
@@ -143,10 +76,19 @@ Traceback (most recent call last):
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\form.html", line 20, in top-level template code
-    {{ form.hidden_tag() }}
-    ^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-01-28 16:19:32,648 - ERROR - 500 Error: http://127.0.0.1:10000/
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 43, in top-level template code
+    <form action="{{ url_for('confirm_mail', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
+    ^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'confirm_mail' with values ['entry_id']. Did you mean 'export_excel' instead?
+2025-01-29 13:27:09,949 - ERROR - 500 Error: http://127.0.0.1:10000/admin

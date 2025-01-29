@@ -1,6 +1,3 @@
-<!-- Kinderfasching -->
-
-<!-- 404.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -9,18 +6,18 @@
     <title>Seite nicht gefunden</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon-tsv-bitzfeld.png') }}">
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
-        h1 { font-size: 50px; color: #dc3545; }
-        p { font-size: 18px; color: #6c757d; }
-        .btn { display: inline-block; margin-top: 20px; padding: 15px 30px; color: #fff; background: #007bff; text-decoration: none; border-radius: 5px; }
-        .btn:hover { background: #0056b3; }
-    </style>
 </head>
 <body>
-    <h1>404 - Seite nicht gefunden</h1>
-    <p>Die angeforderte Seite konnte nicht gefunden werden. Möglicherweise wurde sie verschoben oder entfernt.</p>
-    <a href="/" class="btn">Zur Startseite</a>
-    <p>Bei Fragen kontaktieren Sie uns unter <a href="mailto:info@tsv-bitzfeld.de">info@tsv-bitzfeld.de</a></p>
+    <div class="error-container">
+        <h1>🚨 404 - Seite nicht gefunden</h1>
+        <p>Die Seite, die Sie suchen, ist leider nicht verfügbar.</p>
+        <p><strong>Versuchen Sie Folgendes:</strong></p>
+        <ul>
+            <p>Überprüfen Sie die URL auf Schreibfehler.</p>
+            <p>Gehen Sie zurück zur Startseite.</p>
+            <p>Falls das Problem weiterhin besteht, <a href="mailto:info@tsv-bitzfeld.de">kontaktieren Sie uns</a>.</p>
+        </ul>
+        <a href="/" class="error-btn">🔙 Zur Startseite</a>
+    </div>
 </body>
 </html>

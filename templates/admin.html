@@ -16,6 +16,7 @@
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Geburtsdatum</th>
+            <th>Allergien</th>
             <th>Vereinsmitgliedschaft</th>
             <th>Telefon</th>
             <th>Email</th>
@@ -26,6 +27,7 @@
             <td>{{ registration.child_firstname }}</td>
             <td>{{ registration.child_lastname }}</td>
             <td>{{ registration.birthdate }}</td>
+            <td>{{ registration.allergies if registration.allergies else '-' }}</td>
             <td>{{ registration.club_membership }}</td>
             <td>{{ registration.phone_number }}</td>
             <td>{{ registration.email }}</td>
@@ -33,7 +35,12 @@
                 <!-- Formular zum Löschen eines einzelnen Eintrags -->
                 <form action="{{ url_for('delete_entry', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
             {{ form.hidden_tag() }}
-                    <button type="submit" class="delete-button">Löschen</button>
+                    <button type="submit" class="small-button">Löschen</button>
+                </form>
+                <!-- Formular zum Absenden der Bestätigungsmail -->
+                <form action="{{ url_for('confirm_mail', entry_id=registration.id) }}" method="post" onsubmit="return confirm('Bist du sicher?');">
+            {{ form.hidden_tag() }}
+                    <button type="submit" class="small-button">Bestätigen</button>
                 </form>
             </td>
         </tr>
