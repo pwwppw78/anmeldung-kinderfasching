@@ -168,6 +168,11 @@ class RegistrationForm(FlaskForm):
 class DeleteForm(FlaskForm):
     csrf_token = HiddenField()
 
+# Zeitstempel im Format DDMMYYYY_HHMM mit Berücksichtigung der Zeitzone
+timezone = pytz.timezone("Europe/Berlin")
+def berlin_time():
+    return datetime.now(timezone)
+
 class Registration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     child_firstname = db.Column(db.String(50), nullable=False)
@@ -180,7 +185,7 @@ class Registration(db.Model):
     phone_number = db.Column(db.String(15), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     confirmed = db.Column(db.Boolean, default=False)
-
+    created_at = db.Column(db.DateTime, default=lambda: berlin_time())
 
 @app.route("/", methods=["GET", "POST"])
 def register():
@@ -202,7 +207,8 @@ def register():
             parent_firstname=form.parent_firstname.data,
             parent_lastname=form.parent_lastname.data,
             phone_number=form.phone_number.data,
-            email=form.email.data
+            email=form.email.data,
+            created_at=berlin_time()
         )
         
         db.session.add(new_registration)
@@ -285,6 +291,16 @@ def admin():
             return redirect(url_for("admin"))
 
     registrations = Registration.query.all()
+
+    timezone = pytz.timezone("Europe/Berlin")
+    for reg in registrations:
+        if reg.created_at:  # Falls `None`, wird übersprungen
+            if reg.created_at.tzinfo is None:  # Falls keine Zeitzone gesetzt ist
+                reg.created_at = timezone.localize(reg.created_at)  # Berlin setzen
+            else:
+                reg.created_at = reg.created_at.astimezone(timezone)  # UTC nach Berlin umwandeln
+
+
     return render_template("admin.html", registrations=registrations, form=form)
 
 @app.route("/logout")
@@ -403,6 +419,7 @@ def export_excel():
     # Daten aus der Datenbank abrufen
     registrations = Registration.query.all()
     data = [{
+        "Zeitstempel": r.created_at.astimezone(pytz.timezone("Europe/Berlin")).strftime("%d.%m.%Y %H:%M"),
         "Vorname": r.child_firstname,
         "Nachname": r.child_lastname,
         "Geburtsdatum": r.birthdate,
@@ -412,17 +429,13 @@ def export_excel():
         "E-Mail": r.email
     } for r in registrations]
 
-    # Daten in ein Pandas-DataFrame umwandeln
     df = pd.DataFrame(data)
-
-    # In eine BytesIO-Datei speichern, um sie im Speicher zu halten
     output = BytesIO()
     df.to_excel(output, index=False, engine='openpyxl')
     output.seek(0)
 
-    # Zeitstempel im Format DDMMYYYY_HHMMSS mit Berücksichtigung der Zeitzone
     timezone = pytz.timezone("Europe/Berlin")
-    timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+    timestamp = datetime.now(timezone).strftime("%d-%m-%Y_%H-%M-%S")
 
     # Excel-Datei als Antwort zurückgeben
     response = Response(

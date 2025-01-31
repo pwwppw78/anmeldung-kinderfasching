@@ -13,17 +13,19 @@
     <h1>Registrierte Teilnehmer</h1>
     <table border="1">
         <tr>
+            <th>Zeitstempel</th>
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Geburtsdatum</th>
             <th>Allergien</th>
             <th>Vereinsmitgliedschaft</th>
             <th>Telefon</th>
-            <th>Email</th>
+            <th>E-Mail</th>
             <th>Aktionen</th>
         </tr>
         {% for registration in registrations %}
         <tr {% if registration.confirmed %} class="confirmed" {% endif %}>
+            <td>{{ registration.created_at.strftime('%d.%m.%Y %H:%M') }}</td>
             <td>{{ registration.child_firstname }}</td>
             <td>{{ registration.child_lastname }}</td>
             <td>{{ registration.birthdate }}</td>

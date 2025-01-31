@@ -283,12 +283,12 @@
 		.small-button {
 			background-color: white;
 			color: black;
-			padding: 0.2rem;
+			padding: 0.1rem;
 			border: 1px solid #000000;
 			border-radius: 0.5rem;
 			cursor: pointer;
 			width: fit-content;
-			font-size: 0.6rem;
+			font-size: 0.55rem;
 			font-weight: normal;
 			display: block;
 			margin: 2px auto;
@@ -441,12 +441,12 @@
 			border-collapse: collapse; 
 			width: 100%; 
 			margin: 20px auto;
-			font-size: 0.7rem;
+			font-size: 0.55rem;
 		}
 
 	/* Formatierung Zellen und Rahmen */
 		table th, table td {
-			padding: 5px; /* Abstand innerhalb der Zellen */
+			padding: 2px; /* Abstand innerhalb der Zellen */
 			border: 1.5px solid black; /* Rahmenfarbe */
 			text-align: center; /* Ausrichtung des Textes */
 			line-height: 2;
