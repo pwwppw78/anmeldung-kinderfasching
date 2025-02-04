@@ -1,5 +1,4 @@
 <!-- Kinderfasching -->
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,39 +7,49 @@
     <title>Bestätigung</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon-tsv-bitzfeld.png') }}">
-
 </head>
 <body>
     <div class="container">
-        <h1>Vielen Dank für Ihre Anmeldung!</h1>
-        <p>Die Anmeldedaten für <strong>{{ child_firstname }}</strong> <strong>{{ child_lastname }}</strong>, 
-        geboren am <strong>{{ birthdate }}</strong>, wurde erfolgreich übermittelt. <br><br>
-        Um die Anmeldung abzuschließen, ist die Bezahlung der Eintrittskarte per <strong>PayPal Friends & Family</strong> oder <strong>Banküberweisung</strong> erforderlich. <br><br>
-        Die <strong>Bestätigung der Anmeldung</strong> erfolgt innerhalb von <strong>24 Stunden</strong> nach Eingang der Zahlung per Mail. <br><br></p>
+        <h1>VIELEN DANK FÜR IHRE ANMELDUNG!</h1>
         
-        <!-- Buttons für PayPal und Banküberweisung -->
-        <div class="button-wrapper">
-            <button onclick="window.open('https://paypal.me/pascalweibler?country.x=DE&locale.x=de_DE', '_blank')" class="paypal-button">PayPal</button>
-            <button onclick="toggleBankDetails()" class="bank-button">Banküberweisung</button>
+        <h5>Angemeldete Kinder</h5>
+        {% if data and data.children %}
+            <div class="registered-children">
+                {% for child in data.children %}
+                    {% if child.child_firstname and child.child_lastname %}
+                        <div class="child-name">{{ child.child_firstname }} {{ child.child_lastname }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Keine Kinder angemeldet.</p>
+        {% endif %}
+
+        <!-- Bezahloptionen -->
+        <h5>Bezahlung</h5>
+        <div class="payment-info">
+            <p>Um die Anmeldung abzuschließen, ist die Bezahlung der Eintrittskarte per <strong>PayPal Friends & Family</strong> oder <strong>Banküberweisung</strong> erforderlich.</p>
+            <p>Die Bestätigung der Anmeldung erfolgt innerhalb von <strong>24 Stunden</strong> nach Eingang der Zahlung per Mail.</p>
         </div>
 
+        <div class="button-wrapper">
+            <button class="paypal-button">PayPal</button>
+            <button class="bank-button">Banküberweisung</button>
+        </div>
 
-
-        <!-- Versteckte Bankdaten mit separater Div für bessere Kontrolle -->
+        <!-- Versteckte Bankdaten -->
         <div id="bank-details" style="display: none;">
             <div class="bank-details-container">
                 <h2>Banküberweisung</h2>
-                <p><strong>Empfänger:</strong> Pascal Weibler</p>
-                <p><strong>IBAN:</strong> DE11 6006 9714 0422 5350 01</p>
-                <p><strong>BIC:</strong> GENODES1IBR</p>
-                <p><strong>Verwendungszweck:</strong> Kinderfasching 2025 - {{ child_firstname }} {{ child_lastname }}</p>
+                <p><strong>Empfänger:</strong> {{ payment_info.recipient }}</p>
+                <p><strong>IBAN:</strong> {{ payment_info.iban }}</p>
+                <p><strong>BIC:</strong> {{ payment_info.bic }}</p>
+                <p><strong>Verwendungszweck:</strong> Kinderfasching 2025 - {{ data.parent_firstname }} {{ data.parent_lastname }}</p>
                 <p><br><br>Bitte überweisen Sie den Betrag innerhalb von 3 Werktagen.</p>
             </div>
         </div>
-
     </div>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

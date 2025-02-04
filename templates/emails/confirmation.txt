@@ -1,0 +1,22 @@
+Hallo {parent_firstname} {parent_lastname},
+
+hiermit bestätigen wir Ihnen die Anmeldung zum Kinderfasching! 🎉
+Ihre Zahlung ist erfolgreich eingegangen. 
+
+Ihre Anmeldedaten im Überblick:
+
+👤 Angemeldete Kinder: 
+{children_details}   
+
+👨‍👩‍👦 Erziehungsberechtigte/r: {parent_firstname} {parent_lastname}  
+📞 Notfall-Telefonnummer: {phone_number}  
+📧 E-Mail: {email}  
+
+
+Falls Sie Fragen haben, erreichen Sie uns unter anmeldung.tsvbitzfeld1922@gmail.com.
+Wir freuen uns auf einen tollen Tag! 🎊🎈
+
+
+Viele Grüße
+
+Jugendausschuss des TSV Bitzfeld

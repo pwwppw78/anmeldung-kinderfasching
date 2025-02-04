@@ -1,4 +1,19 @@
-2025-01-29 15:09:16,494 - ERROR - Exception on /admin [GET]
+2025-02-03 15:18:40,911 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: registration.children
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -9,84 +24,104 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 286, in admin
-    return render_template("admin.html", registrations=registrations, form=form)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 46, in template
-    {% endfor %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'.
-2025-01-29 15:09:16,501 - ERROR - 500 Error: http://127.0.0.1:10000/admin
-2025-01-31 08:57:39,628 - ERROR - Exception on /admin [GET]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 294, in admin
-    return render_template("admin.html", registrations=registrations, form=form)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 28, in top-level template code
-    <td>{{ registration.created_at.astimezone(pytz.timezone("Europe/Berlin")).strftime('%d.%m.%Y %H:%M') }}</td>
-    ^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'pytz' is undefined
-2025-01-31 08:57:39,706 - ERROR - 500 Error: http://127.0.0.1:10000/admin
-2025-01-31 08:57:46,253 - ERROR - Exception on /admin [GET]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 294, in admin
-    return render_template("admin.html", registrations=registrations, form=form)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin.html", line 28, in top-level template code
-    <td>{{ registration.created_at.astimezone(pytz.timezone("Europe/Berlin")).strftime('%d.%m.%Y %H:%M') }}</td>
-    ^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'pytz' is undefined
-2025-01-31 08:57:46,257 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 272, in admin
+    registrations = Registration.query.all()
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ~~~~~~~~~~^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: registration.children
+[SQL: SELECT registration.id AS registration_id, registration.children AS registration_children, registration.parent_firstname AS registration_parent_firstname, registration.parent_lastname AS registration_parent_lastname, registration.phone_number AS registration_phone_number, registration.email AS registration_email, registration.confirmed AS registration_confirmed, registration.created_at AS registration_created_at 
+FROM registration]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-02-03 15:18:41,162 - ERROR - 500 Error: http://127.0.0.1:10000/admin
+2025-02-03 15:24:43,867 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:25:00,889 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:26:43,536 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:28:51,308 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:28:55,693 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:29:47,190 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:32:53,807 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:33:18,105 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:35:04,013 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-03 15:35:36,599 - ERROR - 500 Error: http://127.0.0.1:10000/
+2025-02-04 09:16:57,442 - ERROR - 404 Error: http://127.0.0.1:10000/favicon.ico

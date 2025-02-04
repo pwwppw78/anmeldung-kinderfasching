@@ -1,502 +1,541 @@
-/* Kinderfasching */
-
-
-
-
-/* Allgemeines Styling */
-
-
-	/*Grundgestaltung*/
-		body {
-			font-family: 'Arial', sans-serif;
-			background: url('/static/confetti_top.svg') no-repeat center center fixed;
-			background-size: cover;
-			background-position: center center;
-			margin: 0;
-			padding: 0;
-			min-height: 100vh;
-			width: 100vw;
-			overflow-x: hidden;
-			background-attachment: fixed;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-		}
-
-	/* Verhindert horizontales Scrollen */
-		html {
-			overflow-x: hidden;
-		}
-
-	/* Formular-Container */
-		.container {
-			width: 90%;
-			max-width: 600px;
-			margin: 20px auto;
-			background: rgba(255, 255, 255, 0.75);
-			padding: 20px;
-			box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
-			border-radius: 10px;
-			border: 4px solid #000000;
-		}
-
-	/* Tabellen-Container */
-		.table-container {
-			width: 90%;
-			max-width: 1000px;
-			margin: 20px auto;
-			background: rgba(255, 255, 255, 0.75);
-			padding: 20px;
-			box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
-			border-radius: 10px;
-			border: 4px solid #000000;
-		}
-
-
-
-
-/*Beschriftungen*/
-
-
-	/* Überschrift 1 */
-		h1 {
-		text-align: center;
-		color: #000000; /* Schwarz */
-		font-size: clamp(1.5rem, 5vw, 3rem); /* Mindest-, dynamische und maximale Größe */
-		text-transform: uppercase;
-		font-weight: bold;
-		margin-bottom: 30px;
-		max-width: 100%;
-		white-space: normal; /* Erlaubt Zeilenumbruch */
-		overflow: visible; /* Zeigt den gesamten Text */
-		}
-
-	/* Überschrift 2 */
-		h2 {
-		text-align: center;
-		color: #000000; /* Schwarz */
-		font-size: clamp(1rem, 4vw, 2rem); /* Mindest-, dynamische und maximale Größe */
-		text-transform: uppercase;
-		font-weight: bold;
-		margin-bottom: 30px;
-		max-width: 100%;
-		white-space: normal; /* Erlaubt Zeilenumbruch */
-		overflow: visible; /* Zeigt den gesamten Text */
-		}
-
-	/* Abschnittlabels */
-		label {
-			display: block;
-			margin-top: 22px;
-			color: #000000;
-			margin-bottom: 5px;
-		}
-
-
-
-
-/* Pflichtfeld-Hinweis */
-
-
-	/* Text */
-		.required-info {
-			font-size: 12px;
-			font-style: italic;
-			color: #8b0000;
-			text-align: right;
-			margin-bottom: 20px;
-		}
-
-	/* Sternchen */
-		.required {
-			color: #b22222;
-		}
-
-
-
-
-/* Platzhalter */
-
-
-	/* Einheitliches Styling für Platzhalter in allen Feldern */
-		input::placeholder, input[type="date"], select {
-			color: #c4c4cc;
-			font-style: normal;
-		}
-
-	/* Platzhalter-Option grau beibehalten */
-		select option[value=""] {
-			color: #c4c4cc !important;
-			font-style: normal;
-		}
-
-	/* Alle anderen Optionen schwarz machen */
-		select option:not([value=""]) {
-			color: #000000 !important;
-			font-style: normal;
-		}
-
-	/* Nach Auswahl einer gültigen Option */
-		select:valid, input[type="date"]:valid {
-			color: #000000 !important;
-			font-style: normal;
-		}
-
-
-
-
-/* Input-Felder */
-
-
-	/* Felder */
-		input, select, textarea {
-			width: 45%;
-			padding: 0.5rem;
-			margin-top: 2px;
-			border: 2px solid #000000;
-			border-radius: 0.5rem;
-			font-size: 0.8rem;
-			margin-bottom: 5px;
-		}
-
-	/* Fokus- und Hovereffekt */
-		input:focus, input[type="date"]:focus, select:focus, textarea:focus, input:hover, input[type="date"]:hover, select:hover, textarea:hover {
-			border-color: #000000;
-			outline: none;
-			box-shadow: 0px 0px 5px #000000;
-		}
-
-	/*Mehrere nebeneinander platzieren */
-		.input-group {
-			display: flex;
-			gap: 10px;
-		}
-
-		.input-group input {
-			flex: 1 1 40%;
-			min-width: 100px;
-			max-width: 300px;
-		}
-
-	/*Date-Feld Styling */
-		input[type="date"] {
-			margin-top: 2px;
-			width: 45%;
-			padding: 0.5rem;
-			border: 2px solid #000000;
-			border-radius: 0.5rem;
-			margin-bottom: 5px;
-			font-family: 'Arial', sans-serif;
-			font-size: 0.8rem;
-		}
-
-	/*Select-Feld Styling */
-		select {
-			margin-top: 2px;
-			width: 45%;
-			padding: 0.5rem;
-			border: 2px solid #000000;
-			border-radius: 0.5rem;
-			font-size: 0.8rem;
-			margin-bottom: 5px;
-		}
-
-	/* Passwort-Feld Styling */
-		input[type="password"] {
-			width: 80%;
-			padding: 0.8rem;
-			border: 2px solid #000;
-			border-radius: 0.5rem;
-			font-size: 1rem;
-			outline: none;
-		}
-
-
-
-
-/* Buttons */
-
-
-	/* große Buttons */
-		button {
-			background-color: #000000;
-			color: white;
-			padding: 1rem;
-			border: none;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			width: 80%;
-			font-size: 1.2rem;
-			font-weight: bold;
-			transition: background 0.3s;
-			display: block;
-			margin: 30px auto;
-		}
-
-	/* große Button Hover-Effekt*/
-		button:hover, .button:hover {
-			background-color: #b22222;
-			transform: scale(1.05);
-		}
-
-	/* class =button */
-		.button {
-			display: inline-block;
-			padding: 1rem;
-			background-color: #000000;  
-			color: white;
-			text-align: center;
-			font-size: 1.2rem;
-			font-weight: bold;
-			text-decoration: none;
-			border: none;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			margin: 20px auto;
-		}
-
-	/* Stellt sicher, dass Buttons untereinander stehen */
-		.button-wrapper {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: none; 
-			width: 100%;
-		}
-
-	/* Zentrieren des Buttons */
-		.button-wrapper button {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-	/* Zentrieren des Buttons */
-		.button-container {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-		}
-
-	/* Button zum Löschen einzelner Zeilen der Tabelle */
-		.small-button {
-			background-color: white;
-			color: black;
-			padding: 0.1rem;
-			border: 1px solid #000000;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			width: fit-content;
-			font-size: 0.55rem;
-			font-weight: normal;
-			display: block;
-			margin: 2px auto;
-		}
-
-	/* Bestätigte Zeilen in Grün einfärben */
-		.confirmed {
-			background-color: #8bf792 !important;
-		}
-
-
-	/* Button zum Löschen aller Zeilen der Tabelle */
-		.delete-all-button {
-			background-color: #000000;
-			color: white;
-			padding: 0.8rem;
-			border: none;
-			border-radius: 0.5rem;
-			cursor: pointer;
-			width: fit-content;
-			font-size: 1rem;
-			font-weight: bold;
-			display: block;
-			margin: 20px auto;
-		}
-
-	/* Button zur PayPal-Weiterleitung */
-		.paypal-button {
-			background-color: #003087; /* PayPal-Blau */
-			color: #FFFFFF; /* Weiß */
-			font-size: 1.2rem;
-			font-weight: bold;
-			border: 2px solid #003087;
-			border-radius: 0.5rem;
-			margin: 30px auto;
-			padding: 10px 20px;
-			text-decoration: none;
-			display: inline-block;
-			transition: background-color 0.3s, transform 0.2s;
-		}
-
-	/* Hover-Effekt PayPal-Button */
-		.paypal-button:hover {
-			background-color: #ffb319; /* Dunkleres Gelb */
-			color: #003087; /* PayPal-Blau */
-			transform: scale(1.05);
-		}
-
-	/* Button zur Banküberweisung */
-		.bank-button {
-			background-color: #000000; /* Schwarz */
-			color: #FFFFFF; /* Weiß */
-			font-size: 1.2rem;
-			font-weight: bold;
-			border: 2px solid #000000;
-			border-radius: 0.5rem;
-			margin: 30px auto;
-			padding: 10px 20px;
-			text-decoration: none;
-			display: inline-block;
-			transition: background-color 0.3s, transform 0.2s;
-		}
-
-	/* Hover-Effekt Banküberweisungs-Button */
-		.bank-button:hover {
-			background-color: #FFFFFF; /* Weiß */
-			color: #000000; /* Schwarz */
-			transform: scale(1.05);
-		}
-
-	/* Versteckt den Banküberweisungsbereich standardmäßig */
-		#bank-details {
-			display: none;
-			margin-top: 20px;
-			text-align: center;
-			background-color: rgba(255, 255, 255, 0.85);
-			padding: 15px;
-			border-radius: 10px;
-			border: 2px solid #000;
-		}
-
-
-
-
-/* Datenschutz-Link */
-
-
-	/* Formatierung Datenschutz */
-		.privacy-link {
-			color: #b22222; /* Dunkelrot für Hervorhebung */
-			text-decoration: underline;
-			font-weight: bold;
-		}
-
-	/* Hover-Effekt Datenschutz */
-		.privacy-link:hover {
-			color: #8b0000;
-		}
-
-
-
-
-/* Fehlermeldungen */
-
-
-	/* Fehlerseiten-Container */
-		.error-container {
-			text-align: center;
-			padding: 50px;
-			background-color: #fff3f3;
-			border: 2px solid #dc3545;
-			border-radius: 10px;
-			max-width: 600px;
-			margin: 50px auto;
-			box-shadow: 0px 0px 10px rgba(220, 53, 69, 0.3);
-		}
-
-	/* Fehlerhafte Eingaben visuell hervorheben */
-		.input-error {
-			border: 2px solid red !important;
-			background-color: #ffe6e6;
-		}
-
-	/* Fehlerseiten Button */
-		.error-btn {
-			display: inline-block;
-			margin-top: 20px;
-			padding: 15px 30px;
-			color: #fff;
-			background: #dc3545;
-			text-decoration: none;
-			border-radius: 5px;
-			font-weight: bold;
-		}
-
-	/* Fehlerseiten Button Hover-Effekt */
-		.error-btn:hover {
-			background: #a71d2a;
-		}
-
-
-
-
-/* Tabelle */
-
-
-	/* Formatierung Tabelle */
-		table {
-			background-color: white; 
-			border-collapse: collapse; 
-			width: 100%; 
-			margin: 20px auto;
-			font-size: 0.55rem;
-		}
-
-	/* Formatierung Zellen und Rahmen */
-		table th, table td {
-			padding: 2px; /* Abstand innerhalb der Zellen */
-			border: 1.5px solid black; /* Rahmenfarbe */
-			text-align: center; /* Ausrichtung des Textes */
-			line-height: 2;
-		}
-
-
-
-
-/*Formatierung auf verschiedene Bildschirme*/
-
-
-	/* Für große Bildschirme (Desktops)*/
-		@media (min-width: 1200px) {
-			.container {
-				width: 50%;
-				max-width: 1000px;
-			}
-		}
-
-	/* Für Tablets */
-		@media (max-width: 1200px) {
-			.container {
-				width: 60%;
-    			}
-			h1 {
-				font-size: clamp(1.2rem, 4vw, 2.5rem);
-			}
-		}
-
-	/* Für Smartphones */
-		@media (max-width: 768px) {
-			.container {
-				width: 70%;
-			}
-			h1 {
-				font-size: clamp(1rem, 5vw, 2rem);
-			}
-		}
-
-	/* Für kleine Smartphones */
-		@media (max-width: 480px) {
-			.container {
-				width: 80%;
-				max-width: 400px;
-			}
-			h1 {
-				font-size: clamp(0.8rem, 6vw, 1.5rem);
-			}
-			button {
-				font-size: 1.2rem;
-				padding: 1rem;
-			}
-		}
+/* =========================================
+   Global Base Styles 
+   ========================================= */
+/* Document Setup */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                 Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    background: url('/static/confetti_top.svg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+/* =========================================
+   Layout Components
+   ========================================= */
+/* Containers */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 4px solid #000000;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0px 0px 230px rgba(0, 0, 0, 0.25);
+}
+
+.table-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 4px solid #000000;
+}
+
+/* Dividers */
+.child-child-divider {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none;
+    border-top: 2px solid #c4c4cc;
+}
+
+.child-parent-divider {
+    margin-bottom: 30px;
+    border: none;
+    border-top: 2px solid #c4c4cc;
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+/* Headings */
+h1 {
+    text-align: center;
+    color: #000000;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+    font-size: clamp(1rem, 4vw, 2rem);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+}
+
+h3 {
+    text-align: left;
+    color: #000000;
+    font-size: clamp(0.8rem, 3.5vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: 10px;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+}
+
+h5 {
+    text-align: left;
+    color: #000000;
+    font-size: clamp(0.8rem, 3.5vw, 1.5rem);
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 20px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+/* Required Field Info */
+.required-info {
+    font-size: 12px;
+    font-style: italic;
+    color: #8b0000;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.required {
+    color: #b22222;
+}
+
+/* =========================================
+   Form Elements
+   ========================================= */
+/* Input Fields */
+input, select, textarea {
+    width: 45%;
+    padding: 0.5rem;
+    margin-top: 2px;
+    border: 2px solid #000000;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Focus States */
+input:focus, input[type="date"]:focus, select:focus, textarea:focus,
+input:hover, input[type="date"]:hover, select:hover, textarea:hover {
+    border-color: #000000;
+    outline: none;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1 1 40%;
+    min-width: 100px;
+    max-width: 300px;
+}
+
+/* Special Input Types */
+input[type="date"] {
+    margin-top: 2px;
+    width: 45%;
+    padding: 0.5rem;
+    border: 2px solid #000000;
+    border-radius: 0.5rem;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                 Helvetica, Arial, sans-serif;
+}
+
+input[type="password"] {
+    width: 80%;
+    padding: 0.8rem;
+    border: 2px solid #000;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Select Elements */
+select {
+    margin-top: 2px;
+    width: 45%;
+    padding: 0.5rem;
+    border: 2px solid #000000;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* Placeholders */
+input::placeholder, input[type="date"], select {
+    color: #c4c4cc;
+    font-style: normal;
+}
+
+select option[value=""] {
+    color: #c4c4cc !important;
+    font-style: normal;
+}
+
+select option:not([value=""]) {
+    color: #000000 !important;
+    font-style: normal;
+}
+
+select:valid, input[type="date"]:valid {
+    color: #000000 !important;
+    font-style: normal;
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+/* Base Button Styles */
+button {
+    background-color: #000000;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: block;
+    margin: 30px auto;
+}
+
+button:hover, .button:hover {
+    background-color: #b22222;
+    transform: scale(1.05);
+}
+
+/* Button Variations */
+.button {
+    display: inline-block;
+    padding: 1rem;
+    background-color: #000000;  
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+/* Button Layout */
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: none; 
+    width: 100%;
+}
+
+.button-wrapper button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Special Buttons */
+.small-button {
+    background-color: white;
+    color: black;
+    padding: 0.1rem;
+    border: 1px solid #000000;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 0.55rem;
+    font-weight: normal;
+    display: block;
+    margin: 2px auto;
+}
+
+.delete-all-button {
+    background-color: #000000;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Payment Buttons */
+.paypal-button {
+    background-color: #003087;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #003087;
+    border-radius: 0.5rem;
+    margin: 30px auto;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.paypal-button:hover {
+    background-color: #ffb319;
+    color: #003087;
+    transform: scale(1.05);
+}
+
+.bank-button {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #000000;
+    border-radius: 0.5rem;
+    margin: 30px auto;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.bank-button:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   Component Specific Styles
+   ========================================= */
+/* Bank Details Section */
+#bank-details {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+/* Child Form Elements */
+.change-child-button {
+    background-color: #000000; 
+    color: #FFFFFF; 
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid #000000;
+    border-radius: 0.5rem;
+    margin-top: 20px;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+}
+
+.change-child-button:hover {
+    background-color: #FFFFFF; 
+    color: #000000; 
+}
+
+.change-child-button-container {
+    margin-top: 20px;
+}
+
+/* Registration List */
+.registered-children {
+    list-style: disc;
+    padding-left: 0px;
+    margin-bottom: 40px;
+}
+
+.child-name {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* =========================================
+   Validation & Error States
+   ========================================= */
+/* Validation Messages */
+.validation-error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    padding-left: 4px;
+}
+
+.error-field {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* Error Containers */
+.error-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff3f3;
+    border: 2px solid #dc3545;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 10px rgba(220, 53, 69, 0.3);
+}
+
+.input-error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+/* Error Buttons */
+.error-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    color: #fff;
+    background: #dc3545;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.error-btn:hover {
+    background: #a71d2a;
+}
+
+/* =========================================
+   Tables
+   ========================================= */
+table {
+    background-color: white; 
+    border-collapse: collapse; 
+    width: 100%; 
+    margin: 20px auto;
+    font-size: 0.55rem;
+}
+
+table th, table td {
+    padding: 2px;
+    border: 1.5px solid black;
+    text-align: center;
+    line-height: 2;
+}
+
+.confirmed {
+    background-color: #8bf792 !important;
+}
+
+/* =========================================
+   Links
+   ========================================= */
+.privacy-link {
+    color: #b22222;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.privacy-link:hover {
+    color: #8b0000;
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
+/* Desktop */
+@media (min-width: 1200px) {
+    .container {
+        width: 50%;
+        max-width: 1000px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+    .container {
+        width: 60%;
+    }
+    h1 {
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 70%;
+    }
+    h1 {
+        font-size: clamp(1rem, 5vw, 2rem);
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+        max-width: 400px;
+    }
+    h1 {
+        font-size: clamp(0.8rem, 6vw, 1.5rem);
+    }
+    button {
+        font-size: 1.2rem;
+        padding: 1rem
