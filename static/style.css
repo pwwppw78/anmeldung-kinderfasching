@@ -628,9 +628,9 @@ table th, table td {
 /* Small Mobile */
 @media (max-width: 480px) {    
     body{
-        background: url('/static/confetti_top.svg');
+        background: url('/static/confetti_top.svg') no-repeat top center;
         background-size: 100%;
-        background-position: top;
+    }
 
     .container {
         width: 100%;
