@@ -185,8 +185,8 @@ input:hover, input[type="date"]:hover, select:hover, textarea:hover {
 
 .input-group input, .name-fields input {
     flex: 1;
-    min-width: 0; /* Prevents input from overflowing */
-    width: calc(50% - 5px); /* Accounts for the gap */
+    min-width: 0;
+    width: calc(50% - 5px);
     height: 40px;
 }
 
@@ -209,15 +209,21 @@ input[type="date"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* Date Input */
-input[type="date"] {
-    color: #000000;
-}
-
-input[type="date"]:invalid {
+input[type="date"]::before {
+    content: attr(placeholder);
     color: #c4c4cc;
+    width: 100%;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+    display: none;
 }
 
 input[type="password"] {
@@ -252,7 +258,7 @@ select {
 }
 
 /* Placeholders */
-input::placeholder, input[type="date"], select {
+input::placeholder, select {
     color: #c4c4cc;
     font-style: normal;
 }
@@ -267,9 +273,13 @@ select option:not([value=""]) {
     font-style: normal;
 }
 
-select:valid, input[type="date"]:valid {
+select:valid {
     color: #000000 !important;
     font-style: normal;
+}
+
+input[type="date"]:valid {
+    color: #000000;
 }
 
 /* =========================================
@@ -435,8 +445,8 @@ button:hover, .button:hover {
 }
 
 .change-child-button:hover {
-    background-color: #FFFFFF; 
-    color: #000000; 
+    background-color: #000000; 
+    color: #FFFFFF; 
 }
 
 .change-child-button-container {
