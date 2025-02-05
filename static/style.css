@@ -153,12 +153,13 @@ label {
 input, select, textarea {
     width: 100%;
     height: 40px;
-    padding: 12px;
+    padding: 8px 12px;
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
     font-size: 14px;
+    line-height: 24px;
     transition: all 0.3s ease;
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -193,16 +194,43 @@ input:hover, input[type="date"]:hover, select:hover, textarea:hover {
 input[type="date"] {
     width: 100%;
     height: 40px;
-    padding: 12px;
+    padding: 8px 12px;
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
     font-size: 14px;
+    line-height: 24px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                  Helvetica, Arial, sans-serif;
     box-sizing: border-box;
     background-color: white;
+}
+
+/* Date Input Placeholder */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #c4c4cc;
+}
+
+input[type="date"]:invalid::-webkit-datetime-edit {
+    color: #c4c4cc;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+    color: #000000;
+}
+
+/* For Firefox */
+input[type="date"] {
+    color: #c4c4cc;
+}
+
+input[type="date"]:focus,
+input[type="date"]:valid {
+    color: #000000;
 }
 
 input[type="password"] {
@@ -218,13 +246,13 @@ input[type="password"] {
 select {
     width: 100%;
     height: 40px;
-    padding: 12px;
-    padding-right: 36px; /* Make room for the arrow */
+    padding: 8px 36px 8px 12px;
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
     font-size: 14px;
+    line-height: 24px;
     box-sizing: border-box;
     background-color: white;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -565,6 +593,7 @@ table th, table td {
     
     input, select, textarea {
         font-size: 14px;
+        height: 40 px
         padding: 12px;
         width: 100%;
     }
@@ -611,7 +640,7 @@ table th, table td {
 /* Small Mobile */
 @media (max-width: 480px) {    
     h1 {
-        font-size: clamp(1.8rem, 5vw, 2rem);
+        font-size: clamp(2.2rem, 5vw, 2rem);
     }
     
     button {
