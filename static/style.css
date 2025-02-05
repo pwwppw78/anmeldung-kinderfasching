@@ -207,30 +207,13 @@ input[type="date"] {
     background-color: white;
 }
 
-/* Date Input Placeholder */
-input[type="date"]::-webkit-datetime-edit-text,
-input[type="date"]::-webkit-datetime-edit-month-field,
-input[type="date"]::-webkit-datetime-edit-day-field,
-input[type="date"]::-webkit-datetime-edit-year-field {
-    color: #c4c4cc;
-}
-
-input[type="date"]:invalid::-webkit-datetime-edit {
-    color: #c4c4cc;
-}
-
-input[type="date"]:focus::-webkit-datetime-edit {
-    color: #000000;
-}
-
-/* For Firefox */
+/* Date Input */
 input[type="date"] {
-    color: #c4c4cc;
+    color: #000000;
 }
 
-input[type="date"]:focus,
-input[type="date"]:valid {
-    color: #000000;
+input[type="date"]:invalid {
+    color: #c4c4cc;
 }
 
 input[type="password"] {
