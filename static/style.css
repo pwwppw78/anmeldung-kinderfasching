@@ -681,9 +681,19 @@ table th, table td {
         margin: 30px 0;
     }
 
-input[type="date"]::before {
-    content: "TT.MM.JJJJ";
-    text-align: center;
+    input[type="date"]::before {
+        content: "TT.MM.JJJJ";
+        text-align: left;
+        }
+    }
+
+    .change-child-button {
+        width: 100%;
+    }
+    
+    input[type="date"]:valid {
+        text-align: left;
+        color: #000000;
     }
 }
 
