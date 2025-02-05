@@ -653,7 +653,8 @@ table th, table td {
     
     button {
         font-size: 1.2rem;
-        padding: 0px;
+        margin-top: 20px;
+        padding: 10px 10px;
     }
     
     .child-child-divider,
