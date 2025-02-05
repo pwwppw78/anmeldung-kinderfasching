@@ -93,8 +93,7 @@ h1 {
 h2 {
     text-align: center;
     color: #000000;
-    font-size: clamp(2.5rem, 5vw, 3rem);
-    text-transform: uppercase;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
     margin-bottom: 30px;
     max-width: 100%;
