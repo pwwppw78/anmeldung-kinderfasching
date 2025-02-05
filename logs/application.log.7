@@ -1,122 +1,27 @@
-2025-02-04 13:32:37,482 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
-    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 406, in admin_login
-    return render_template("admin_login.html",
-        flashMessages=flash_messages,
-        csrf_token=generate_csrf()
-    )
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 89, in template
-    flashMessages={{{ flashMessages | tojson }}}
-    ^^^^^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
-2025-02-04 13:32:37,507 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:625]
-2025-02-04 13:32:39,494 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
-    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 406, in admin_login
-    return render_template("admin_login.html",
-        flashMessages=flash_messages,
-        csrf_token=generate_csrf()
-    )
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 89, in template
-    flashMessages={{{ flashMessages | tojson }}}
-    ^^^^^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
-2025-02-04 13:32:39,504 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:625]
-2025-02-04 13:34:01,736 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
-2025-02-04 13:34:03,667 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
-    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 406, in admin_login
-    return render_template("admin_login.html",
-        flashMessages=flash_messages,
-        csrf_token=generate_csrf()
-    )
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 152, in render_template
-    return _render(app, template, context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 133, in _render
-    rv = template.render(context)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 31, in top-level template code
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-    
-TypeError: 'str' object is not callable
-2025-02-04 13:34:03,672 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:625]
-2025-02-04 13:36:29,381 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
-2025-02-04 13:38:33,464 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
-2025-02-04 13:38:51,153 WARNING: Failed admin login attempt [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:399]
-2025-02-04 13:45:53,323 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
-2025-02-04 13:46:15,683 INFO: Admin login successful [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:423]
-2025-02-04 13:46:15,818 ERROR: Error accessing admin dashboard: the JSON object must be str, bytes or bytearray, not list [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:474]
+2025-02-04 13:56:00,370 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 13:56:21,612 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:480]
+2025-02-04 13:56:30,325 INFO: Admin login successful [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:423]
+2025-02-04 13:56:30,347 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:480]
+2025-02-04 14:02:11,616 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:02:22,460 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:478]
+2025-02-04 14:02:43,726 INFO: Admin login successful [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:423]
+2025-02-04 14:02:43,748 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:478]
+2025-02-04 14:03:35,967 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:03:44,551 INFO: Registrations data: [{'id': 5, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'jfkfshkfjk@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Jonas', 'child_lastname': 'Maier', 'birthdate': '2001-02-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 12:04'}, {'id': 4, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'werjkflin@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Lukas', 'child_lastname': 'Maier', 'birthdate': '2001-02-02', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:23'}, {'id': 3, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'asdfghsskl@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:20'}, {'id': 2, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'passiw25@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:14'}, {'id': 1, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:09'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:03:44,553 INFO: Stats: {'total_registrations': 5, 'confirmed_registrations': 0, 'total_children': 7} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:03:44,565 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:487]
+2025-02-04 14:03:53,728 INFO: Admin login successful [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:423]
+2025-02-04 14:03:53,752 INFO: Registrations data: [{'id': 5, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'jfkfshkfjk@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Jonas', 'child_lastname': 'Maier', 'birthdate': '2001-02-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 12:04'}, {'id': 4, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'werjkflin@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Lukas', 'child_lastname': 'Maier', 'birthdate': '2001-02-02', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:23'}, {'id': 3, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'asdfghsskl@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:20'}, {'id': 2, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'passiw25@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:14'}, {'id': 1, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:09'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:03:53,754 INFO: Stats: {'total_registrations': 5, 'confirmed_registrations': 0, 'total_children': 7} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:03:53,756 ERROR: Error accessing admin dashboard: 'str' object is not callable [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:487]
+2025-02-04 14:05:46,478 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:06:04,298 INFO: Registrations data: [{'id': 5, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'jfkfshkfjk@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Jonas', 'child_lastname': 'Maier', 'birthdate': '2001-02-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 12:04'}, {'id': 4, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'werjkflin@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Lukas', 'child_lastname': 'Maier', 'birthdate': '2001-02-02', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:23'}, {'id': 3, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'asdfghsskl@web.de', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:20'}, {'id': 2, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'passiw25@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:14'}, {'id': 1, 'parent_firstname': 'Kai', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'created_at': '04.02.2025 11:09'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:06:04,299 INFO: Stats: {'total_registrations': 5, 'confirmed_registrations': 0, 'total_children': 7} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:06:18,054 INFO: Deleted all 5 registration entries [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:560]
+2025-02-04 14:06:18,075 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:06:18,076 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:06:46,065 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:06:46,066 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:07:32,121 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:318]
+2025-02-04 14:07:32,123 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:339]
+2025-02-04 14:08:02,040 INFO: Admin login successful [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:423]

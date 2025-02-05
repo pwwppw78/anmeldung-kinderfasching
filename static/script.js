@@ -84,7 +84,7 @@ function validateForm() {
                     }
                     break;
                 case 'tel':
-                    if (!/^(\+\d{1,3}[- ]?)?\d{1,3}[- ]?\d{3,4}[- ]?\d{4,5}$/.test(field.value.trim())) {
+                    if (!/^(?:\d{4}[- ]?\d{7}|\d{4}[- ]?\d{8}|\d{5}[- ]?\d{6}|\d{5}[- ]?\d{7})$/.test(field.value.trim())) {
                         errorMessage = 'Ungültiges Telefonnummerformat';
                     }
                     break;

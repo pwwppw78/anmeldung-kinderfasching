@@ -1,44 +1,6 @@
-2025-02-04 10:49:19,833 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:50:10,582 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:52:32,534 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:57:35,503 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:59:00,755 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:243]
-2025-02-04 10:59:23,032 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:243]
-2025-02-04 10:59:23,036 ERROR: Registration error: name 'sanitize_input' is not defined [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:281]
-2025-02-04 11:01:12,465 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:01:37,884 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:01:37,885 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:01:37,943 ERROR: Database error: (sqlite3.OperationalError) table registration has no column named children
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ([{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'Kai', 'Maier', '01234567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:01:37.940456')]
-(Background on this error at: https://sqlalche.me/e/20/e3q8) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:02:11,583 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:18,097 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:27,375 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:50,486 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:16,922 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:23,360 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:26,107 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:59,851 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:08:06,745 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:08:06,747 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:08:06,823 ERROR: Database error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'list' is not supported
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ([{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'Kai', 'Maier', '+49 123 4567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:08:06.822203')]
-(Background on this error at: https://sqlalche.me/e/20/f405) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:09:18,361 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:09:45,148 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:09:45,149 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:13:02,390 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:13:35,763 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:13:35,764 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:13:35,846 ERROR: Database error: (sqlite3.IntegrityError) UNIQUE constraint failed: registration.email
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('[{"child_firstname": "Max", "child_lastname": "Maier", "birthdate": "2000-01-01", "allergies": "Keine", "club_membership": "TSV Schwabbach 1947 e.V."}]', 'Kai', 'Maier', '+49 123 4567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:13:35.845541')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:14:44,174 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:14:44,174 INFO: Registration data stored in session for passiw25@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:14:59,322 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
+2025-02-04 12:04:49,498 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:314]
+2025-02-04 12:04:49,504 INFO: Registration data stored in session for jfkfshkfjk@web.de [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:335]
+2025-02-04 12:05:37,410 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,12 +14,34 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
     return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 342, in admin_login
-    form = AdminLoginForm()
-           ^^^^^^^^^^^^^^
-NameError: name 'AdminLoginForm' is not defined
-2025-02-04 11:14:59,331 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:561]
-2025-02-04 11:15:00,592 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 406, in admin_login
+    return render_template("admin_login.html",
+        flashMessages=flash_messages,
+        csrf_token=generate_csrf()
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 89, in template
+    flashMessages={{{ flashMessages | tojson }}}
+    ^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+2025-02-04 12:05:37,424 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:625]
+2025-02-04 12:05:39,216 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
 Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -71,20 +55,32 @@ Traceback (most recent call last):
   File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
     return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 342, in admin_login
-    form = AdminLoginForm()
-           ^^^^^^^^^^^^^^
-NameError: name 'AdminLoginForm' is not defined
-2025-02-04 11:15:00,596 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:561]
-2025-02-04 11:19:31,096 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:20:10,929 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:20:10,930 INFO: Registration data stored in session for asdfghsskl@web.de [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:22:46,621 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:23:41,903 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:23:41,904 INFO: Registration data stored in session for werjkflin@web.de [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:33:11,124 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:37:01,874 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:39:56,181 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:43:01,826 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 12:03:31,664 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
-2025-02-04 12:04:15,890 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:314]
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 406, in admin_login
+    return render_template("admin_login.html",
+        flashMessages=flash_messages,
+        csrf_token=generate_csrf()
+    )
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\templates\admin_login.html", line 89, in template
+    flashMessages={{{ flashMessages | tojson }}}
+    ^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
+2025-02-04 12:05:39,223 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:625]
+2025-02-04 13:32:10,350 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
+2025-02-04 13:32:32,435 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]

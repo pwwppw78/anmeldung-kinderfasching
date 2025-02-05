@@ -4,6 +4,8 @@
 /* Document Setup */
 html {
     overflow-x: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -14,13 +16,16 @@ body {
     background-position: center center;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    width: 100%;
     overflow-x: hidden;
     background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* =========================================
@@ -30,13 +35,14 @@ body {
 .container {
     width: 90%;
     max-width: 600px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.75);
-    padding: 20px;
-    box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    border: 4px solid #000000;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    border: 3px solid #000000;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .container:hover {
@@ -145,14 +151,20 @@ label {
    ========================================= */
 /* Input Fields */
 input, select, textarea {
-    width: 45%;
-    padding: 0.5rem;
-    margin-top: 2px;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    margin-top: 4px;
+    margin-bottom: 8px;
     border: 2px solid #000000;
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 16px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
 }
 
 /* Focus States */
@@ -164,28 +176,33 @@ input:hover, input[type="date"]:hover, select:hover, textarea:hover {
 }
 
 /* Input Groups */
-.input-group {
+.input-group, .name-fields {
     display: flex;
     gap: 10px;
+    width: 100%;
+    margin-bottom: 8px;
 }
 
-.input-group input {
-    flex: 1 1 40%;
-    min-width: 100px;
-    max-width: 300px;
+.input-group input, .name-fields input {
+    flex: 1;
+    min-width: 0; /* Prevents input from overflowing */
+    width: calc(50% - 5px); /* Accounts for the gap */
 }
 
 /* Special Input Types */
 input[type="date"] {
-    margin-top: 2px;
-    width: 45%;
-    padding: 0.5rem;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    margin-top: 4px;
+    margin-bottom: 8px;
     border: 2px solid #000000;
-    border-radius: 0.5rem;
-    margin-bottom: 5px;
-    font-size: 0.8rem;
+    border-radius: 8px;
+    font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                  Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: white;
 }
 
 input[type="password"] {
@@ -199,13 +216,24 @@ input[type="password"] {
 
 /* Select Elements */
 select {
-    margin-top: 2px;
-    width: 45%;
-    padding: 0.5rem;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    padding-right: 36px; /* Make room for the arrow */
+    margin-top: 4px;
+    margin-bottom: 8px;
     border: 2px solid #000000;
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* Placeholders */
@@ -520,22 +548,88 @@ table th, table td {
 /* Mobile */
 @media (max-width: 768px) {
     .container {
-        width: 70%;
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
     }
+    
     h1 {
-        font-size: clamp(1rem, 5vw, 2rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        margin: 15px 0;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+        margin: 12px 0;
+    }
+    
+    input, select, textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+    
+    button {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 12px;
+        margin: 15px 0;
+    }
+    
+    /* Keep name fields side by side */
+    .input-group, .name-fields {
+        display: flex;
+        flex-direction: row; /* Ensure horizontal layout */
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .input-group input, .name-fields input {
+        flex: 1;
+        width: calc(50% - 4px); /* Account for gap */
+        margin: 4px 0;
+    }
+    
+    label {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    
+    .required-info {
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    /* Payment buttons for mobile */
+    .paypal-button,
+    .bank-button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        font-size: 1.1rem;
     }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
     .container {
-        width: 80%;
-        max-width: 400px;
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        margin: 0;
     }
+    
     h1 {
-        font-size: clamp(0.8rem, 6vw, 1.5rem);
+        font-size: clamp(1.1rem, 5vw, 1.5rem);
     }
+    
     button {
-        font-size: 1.2rem;
-        padding: 1rem
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .child-child-divider,
+    .child-parent-divider {
+        margin: 20px 0;
+    }
+}
