@@ -35,9 +35,9 @@ body {
 .container {
     width: 90%;
     max-width: 600px;
-    margin: 10px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
     border-radius: 15px;
     border: 3px solid #000000;
@@ -81,7 +81,7 @@ body {
 h1 {
     text-align: center;
     color: #000000;
-    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 5vw, 3rem);
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 30px;
@@ -93,7 +93,7 @@ h1 {
 h2 {
     text-align: center;
     color: #000000;
-    font-size: clamp(1rem, 4vw, 2rem);
+    font-size: clamp(2.5rem, 5vw, 3rem);
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 30px;
@@ -105,7 +105,7 @@ h2 {
 h3 {
     text-align: left;
     color: #000000;
-    font-size: clamp(0.8rem, 3.5vw, 1.5rem);
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
     font-weight: bold;
     margin-bottom: 10px;
     max-width: 100%;
@@ -116,7 +116,7 @@ h3 {
 h5 {
     text-align: left;
     color: #000000;
-    font-size: clamp(0.8rem, 3.5vw, 1.5rem);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -152,13 +152,13 @@ label {
 /* Input Fields */
 input, select, textarea {
     width: 100%;
-    height: 48px;
+    height: 40px;
     padding: 12px;
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     transition: all 0.3s ease;
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -192,13 +192,13 @@ input:hover, input[type="date"]:hover, select:hover, textarea:hover {
 /* Special Input Types */
 input[type="date"] {
     width: 100%;
-    height: 48px;
+    height: 40px;
     padding: 12px;
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                  Helvetica, Arial, sans-serif;
     box-sizing: border-box;
@@ -217,14 +217,14 @@ input[type="password"] {
 /* Select Elements */
 select {
     width: 100%;
-    height: 48px;
+    height: 40px;
     padding: 12px;
     padding-right: 36px; /* Make room for the arrow */
     margin-top: 4px;
     margin-bottom: 8px;
     border: 2px solid #000000;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
     background-color: white;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -541,31 +541,44 @@ table th, table td {
         width: 60%;
     }
     h1 {
-        font-size: clamp(1.2rem, 4vw, 2.5rem);
+        font-size: clamp(2.5rem, 5vw, 3rem);
     }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     .container {
-        width: 95%;
-        margin: 10px auto;
-        padding: 15px;
+        width: 85%;
+        margin: 20px auto;
+        padding: 20px;
     }
     
     h1 {
-        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        font-size: clamp(2.5rem, 5vw, 3rem);
         margin: 15px 0;
     }
     
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin: 12px 0;
     }
     
     input, select, textarea {
-        font-size: 16px;
+        font-size: 14px;
         padding: 12px;
+        width: 100%;
+    }
+    
+    /* Stack name fields vertically on mobile */
+    .input-group, .name-fields {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .input-group input, .name-fields input {
+        width: 100%;
+        margin: 4px 0;
     }
     
     button {
@@ -573,20 +586,6 @@ table th, table td {
         font-size: 1.1rem;
         padding: 12px;
         margin: 15px 0;
-    }
-    
-    /* Keep name fields side by side */
-    .input-group, .name-fields {
-        display: flex;
-        flex-direction: row; /* Ensure horizontal layout */
-        gap: 8px;
-        width: 100%;
-    }
-    
-    .input-group input, .name-fields input {
-        flex: 1;
-        width: calc(50% - 4px); /* Account for gap */
-        margin: 4px 0;
     }
     
     label {
@@ -612,7 +611,7 @@ table th, table td {
 /* Small Mobile */
 @media (max-width: 480px) {
     .container {
-        width: 100%;
+        width: 85%;
         border-radius: 0;
         border-left: none;
         border-right: none;
@@ -620,7 +619,7 @@ table th, table td {
     }
     
     h1 {
-        font-size: clamp(1.1rem, 5vw, 1.5rem);
+        font-size: clamp(1.5rem, 5vw, 1.5rem);
     }
     
     button {
