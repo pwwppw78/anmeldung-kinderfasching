@@ -1,18 +1,18 @@
 Hallo {parent_firstname} {parent_lastname},
 
-vielen Dank für Ihre Anmeldung zum **Kinderfasching des TSV Bitzfeld & TSV Schwabbach**!
+vielen Dank für Ihre Anmeldung zum Kinderfasching des TSV Bitzfeld & TSV Schwabbach!
 
-**Ihre Zahlung ist erfolgreich eingegangen.**
+Ihre Zahlung ist erfolgreich eingegangen.
 Wir freuen uns, Ihr(e) Kind(er) bei unserem Event begrüßen zu dürfen. 
 
 Hier sind Ihre Anmeldedaten im Überblick:
 
-👤 **Angemeldete Kinder:**
+👤 Angemeldete Kinder:
 {children_details}
 
-👨‍👩‍👦 **Erziehungsberechtigte/r:** {parent_firstname} {parent_lastname}
-📞 **Notfall-Telefonnummer:** {phone_number}
-📧 **E-Mail:** {email}
+👨‍👩‍👦 Erziehungsberechtigte/r: {parent_firstname} {parent_lastname}
+📞 Notfall-Telefonnummer: {phone_number}
+📧 E-Mail: {email}
 
 Sollten Sie noch Fragen haben, erreichen Sie uns unter anmeldung.tsvbitzfeld1922@gmail.com.
 
