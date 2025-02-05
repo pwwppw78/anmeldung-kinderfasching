@@ -639,13 +639,21 @@ table th, table td {
 
 /* Small Mobile */
 @media (max-width: 480px) {    
+    .container {
+        width: 100%;
+        margin: 0px auto;
+        padding: 20px;
+        border: none;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0px;
+    }
     h1 {
         font-size: clamp(2.2rem, 5vw, 2rem);
     }
     
     button {
         font-size: 1.2rem;
-        padding: 10px;
+        padding: 0px;
     }
     
     .child-child-divider,

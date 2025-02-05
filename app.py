@@ -274,7 +274,7 @@ def send_confirmation_email(app, entry_id):
             msg = MIMEMultipart()
             msg["From"] = app.config['SMTP_USER']
             msg["To"] = entry.email
-            msg["Subject"] = "✅ Anmeldungsbestätigung 🎉"
+            msg["Subject"] = "Bestätigung Ihrer Anmeldung zum Kinderfasching 🎉"
 
             # Load email template
             template_path = os.path.join(app.root_path, 'templates', 'emails', 'confirmation.txt')
