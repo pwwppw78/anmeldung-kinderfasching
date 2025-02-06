@@ -1,90 +1,47 @@
-2025-02-04 10:49:19,833 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:50:10,582 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:52:32,534 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:57:35,503 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 10:59:00,755 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:243]
-2025-02-04 10:59:23,032 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:243]
-2025-02-04 10:59:23,036 ERROR: Registration error: name 'sanitize_input' is not defined [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:281]
-2025-02-04 11:01:12,465 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:01:37,884 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:01:37,885 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:01:37,943 ERROR: Database error: (sqlite3.OperationalError) table registration has no column named children
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ([{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'Kai', 'Maier', '01234567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:01:37.940456')]
-(Background on this error at: https://sqlalche.me/e/20/e3q8) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:02:11,583 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:18,097 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:27,375 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:02:50,486 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:16,922 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:23,360 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:26,107 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:05:59,851 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:08:06,745 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:08:06,747 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:08:06,823 ERROR: Database error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'list' is not supported
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ([{'child_firstname': 'Max', 'child_lastname': 'Maier', 'birthdate': '2000-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}], 'Kai', 'Maier', '+49 123 4567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:08:06.822203')]
-(Background on this error at: https://sqlalche.me/e/20/f405) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:09:18,361 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:09:45,148 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:09:45,149 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:13:02,390 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:13:35,763 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:13:35,764 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:13:35,846 ERROR: Database error: (sqlite3.IntegrityError) UNIQUE constraint failed: registration.email
-[SQL: INSERT INTO registration (children, parent_firstname, parent_lastname, phone_number, email, confirmed, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('[{"child_firstname": "Max", "child_lastname": "Maier", "birthdate": "2000-01-01", "allergies": "Keine", "club_membership": "TSV Schwabbach 1947 e.V."}]', 'Kai', 'Maier', '+49 123 4567890', 'pwwppw78@gmail.com', 0, '2025-02-04 11:13:35.845541')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:188]
-2025-02-04 11:14:44,174 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:14:44,174 INFO: Registration data stored in session for passiw25@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:14:59,322 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
-    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 342, in admin_login
-    form = AdminLoginForm()
-           ^^^^^^^^^^^^^^
-NameError: name 'AdminLoginForm' is not defined
-2025-02-04 11:14:59,331 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:561]
-2025-02-04 11:15:00,592 ERROR: Exception on /admin-login [GET] [in C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:825]
-Traceback (most recent call last):
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\pwwpp\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
-    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py", line 342, in admin_login
-    form = AdminLoginForm()
-           ^^^^^^^^^^^^^^
-NameError: name 'AdminLoginForm' is not defined
-2025-02-04 11:15:00,596 ERROR: 500 Error: http://127.0.0.1:10000/admin-login [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:561]
-2025-02-04 11:19:31,096 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:20:10,929 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:20:10,930 INFO: Registration data stored in session for asdfghsskl@web.de [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:22:46,621 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:23:41,903 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:266]
-2025-02-04 11:23:41,904 INFO: Registration data stored in session for werjkflin@web.de [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:287]
-2025-02-04 11:33:11,124 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:37:01,874 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:39:56,181 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 11:43:01,826 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:76]
-2025-02-04 12:03:31,664 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:88]
-2025-02-04 12:04:15,890 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:314]
+2025-02-04 14:08:02,060 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:07'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:08:02,078 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 0, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:08:24,329 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': True, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:07'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:476]
+2025-02-04 14:08:24,330 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 1, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:477]
+2025-02-04 14:21:45,273 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:21:49,623 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 123 4567890', 'email': 'pwwppw78@gmail.com', 'confirmed': True, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:07'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:21:49,625 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 1, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:21:56,001 INFO: Deleted registration entry 1 [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:554]
+2025-02-04 14:21:56,022 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:21:56,023 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:22:01,162 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:22:01,163 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:22:05,454 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:22:05,455 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:22:06,643 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:22:06,644 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:22:53,322 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:332]
+2025-02-04 14:22:53,323 INFO: Registration data stored in session for pwwpppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:353]
+2025-02-04 14:23:22,215 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 174 8361462', 'email': 'pwwpppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:22'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:23:22,217 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 0, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:23:31,376 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 174 8361462', 'email': 'pwwpppw78@gmail.com', 'confirmed': True, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:22'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:23:31,378 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 1, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:23:32,611 INFO: Confirmation email sent to pwwpppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:296]
+2025-02-04 14:25:06,605 INFO: Deleted registration entry 1 [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:554]
+2025-02-04 14:25:06,629 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:25:06,630 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:27:49,995 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:28:51,100 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:332]
+2025-02-04 14:28:51,100 INFO: Registration data stored in session for pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:353]
+2025-02-04 14:29:19,818 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 174 8361462', 'email': 'pwwppw78@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:28'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:29:19,820 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 0, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:29:24,866 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 174 8361462', 'email': 'pwwppw78@gmail.com', 'confirmed': True, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:28'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:29:24,867 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 1, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:29:25,793 INFO: Confirmation email sent to pwwppw78@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:296]
+2025-02-04 14:39:09,986 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:39:15,601 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Sibylle', 'parent_lastname': 'Weibler', 'phone_number': '+49 174 8361462', 'email': 'pwwppw78@gmail.com', 'confirmed': True, 'children': [{'child_firstname': 'Pascal', 'child_lastname': 'Weibler', 'birthdate': '2004-08-25', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:28'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:39:15,601 INFO: Stats: {'total_registrations': 1, 'confirmed_registrations': 1, 'total_children': 1} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:39:28,704 INFO: Deleted registration entry 1 [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:554]
+2025-02-04 14:39:28,728 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:39:28,729 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:47:45,391 INFO: Registrations data: [] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]
+2025-02-04 14:47:45,393 INFO: Stats: {'total_registrations': 0, 'confirmed_registrations': 0, 'total_children': 0} [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:491]
+2025-02-04 14:47:55,643 INFO: Application startup [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:92]
+2025-02-04 14:48:41,261 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:332]
+2025-02-04 14:49:25,952 INFO: Received registration data [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:332]
+2025-02-04 14:49:25,953 INFO: Registration data stored in session for passiw25@gmail.com [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:353]
+2025-02-04 14:49:33,009 INFO: Registrations data: [{'id': 1, 'parent_firstname': 'Dagmar', 'parent_lastname': 'Maier', 'phone_number': '+49 123 4567890', 'email': 'passiw25@gmail.com', 'confirmed': False, 'children': [{'child_firstname': 'Paul', 'child_lastname': 'Maier', 'birthdate': '2005-01-01', 'allergies': 'Keine', 'club_membership': 'TSV Schwabbach 1947 e.V.'}, {'child_firstname': 'Jona', 'child_lastname': 'Maier', 'birthdate': '2014-09-03', 'allergies': 'Keine', 'club_membership': 'TSV Bitzfeld 1922 e.V.'}], 'created_at': '04.02.2025 14:49'}] [in C:\Users\pwwpp\Websites\anmeldung-kinderfasching\app.py:490]

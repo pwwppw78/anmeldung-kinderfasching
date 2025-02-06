@@ -4,12 +4,14 @@ import json
 import threading
 import pytz
 import re
+import secrets
 from datetime import datetime
 from io import BytesIO
 from typing import Dict, List, Optional, Union, Tuple
 from functools import wraps
 from hmac import compare_digest
 from dotenv import load_dotenv
+from secrets import token_hex
 
 # Load environment variables before creating the Flask app
 load_dotenv()
@@ -93,26 +95,33 @@ def setup_logging():
 
 setup_logging()
 
+# Generate a nonce
+def generate_csp_nonce():
+    return secrets.token_hex(16)
+
+CSP_NONCE = secrets.token_hex(16)
+
 # Security configuration
 CSP = {
     'default-src': ["'self'"],
     'script-src': [
         "'self'",
-        "'unsafe-inline'",  # Required for Babel
         'https://stackpath.bootstrapcdn.com',
-        'https://cdnjs.cloudflare.com'
+        'https://cdnjs.cloudflare.com',
+        "'unsafe-eval'",
+        f"'nonce-{CSP_NONCE}'"
     ],
     'style-src': [
         "'self'",
-        "'unsafe-inline'",  # Required for Tailwind
         'https://stackpath.bootstrapcdn.com',
         'https://fonts.googleapis.com',
         'https://cdn.jsdelivr.net'
     ],
-    'img-src': ["'self'", 'data:', 'blob:', '/api/placeholder'],
+    'img-src': ["'self'", 'data:', 'blob:'],
     'form-action': ["'self'"],
     'frame-ancestors': "'none'",
-    'object-src': "'none'"
+    'object-src': "'none'",
+    'base-uri': ["'self'"]
 }
 
 if os.environ.get("RENDER"):
@@ -451,7 +460,8 @@ def admin_login():
     
     return render_template("admin_login.html", 
         flashMessages=flash_messages,
-        csrf_token=generate_csrf()
+        csrf_token=generate_csrf(),
+        csp_nonce=CSP_NONCE
     )
 
 @app.route("/admin")
@@ -498,7 +508,8 @@ def admin():
             "admin.html",
             registrations=registrations_data,
             stats=stats,
-            csrf_token=generate_csrf()
+            csrf_token=generate_csrf(),
+            csp_nonce=CSP_NONCE
         )
         
     except Exception as e:
