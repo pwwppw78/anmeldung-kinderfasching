@@ -23,6 +23,26 @@ const AdminDashboard = () => {
    const [showDeleteConfirm, setShowDeleteConfirm] = React.useState(false);
    const { registrations, stats, csrfToken } = window.ADMIN_DATA;
 
+   React.useEffect(() => {
+       // Initial call to handle any flash messages present on load
+       handleFlashMessages();
+
+       // Set up a mutation observer to watch for new flash messages
+       const observer = new MutationObserver((mutations) => {
+           mutations.forEach((mutation) => {
+               if (mutation.addedNodes.length) {
+                   handleFlashMessages();
+               }
+           });
+       });
+
+       // Start observing the body for changes
+       observer.observe(document.body, { childList: true, subtree: true });
+
+       // Cleanup observer on component unmount
+       return () => observer.disconnect();
+   }, []);
+
    return (
        <div className="min-h-screen bg-gray-50 p-4 md:p-8">
            <div className="max-w-7xl mx-auto">
@@ -194,6 +214,31 @@ const AdminDashboard = () => {
        </div>
    );
 };
+
+function handleFlashMessages() {
+    document.querySelectorAll('.flash-message:not([data-handled])').forEach(message => {
+        message.dataset.handled = 'true';
+        
+        // Style for centered, boxed messages
+        message.style.position = 'fixed';
+        message.style.top = '50%';
+        message.style.left = '50%';
+        message.style.transform = 'translate(-50%, -50%)';
+        message.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+        message.style.color = 'white';
+        message.style.padding = '15px 30px';
+        message.style.borderRadius = '8px';
+        message.style.zIndex = '1000';
+        message.style.textAlign = 'center';
+        
+        // Fade out and remove after 3 seconds
+        setTimeout(() => {
+            message.style.transition = 'opacity 0.5s';
+            message.style.opacity = '0';
+            setTimeout(() => message.remove(), 500);
+        }, 3000);
+    });
+}
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);

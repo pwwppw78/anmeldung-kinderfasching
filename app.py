@@ -150,7 +150,7 @@ class Registration(db.Model):
     parent_firstname = db.Column(db.String(50), nullable=False)
     parent_lastname = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.String(15), nullable=False)
-    email = db.Column(db.String(100), nullable=False, unique=True, index=True)
+    email = db.Column(db.String(100), nullable=False, index=True)
     confirmed = db.Column(db.Boolean, default=False)
     created_at = db.Column(
         db.DateTime, 

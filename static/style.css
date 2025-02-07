@@ -434,8 +434,8 @@ button:hover, .button:hover {
 }
 
 .bank-button:hover {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
     transform: scale(1.05);
 }
 
@@ -723,6 +723,25 @@ table th, table td {
        color: #c4c4cc;
        left: 12px;
    }
+}
+
+@media (pointer: coarse) {
+    button:hover, .button:hover {
+        background-color: #b22222;
+        transform: scale(1);
+    }
+
+    .paypal-button:hover {
+        background-color: #003087;
+        color: #FFFFFF;
+        transform: scale(1);
+    }
+
+    .bank-button:hover {
+        background-color: #000000;
+        color: #FFFFFF;
+        transform: scale(1);
+    }
 }
 
 @supports (-webkit-touch-callout: none) {
